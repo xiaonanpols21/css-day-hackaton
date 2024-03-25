@@ -1,0 +1,35 @@
+main ul ul {
+    position: absolute;
+    width: 5em;
+    aspect-ratio: 1;
+    background-color: white;
+    list-style: none;
+}
+
+main div:has(input:checked) ul {
+    display: block;
+    background: hotpink;
+}
+
+label {
+    position: absolute;
+    background-color: red;
+    width: 10em;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+input {
+    display: block;
+    width: 5em;
+    aspect-ratio: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.us {
+    left: 420px;
+    top: 440px;
+}
