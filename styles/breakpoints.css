@@ -1,0 +1,48 @@
+
+@media (min-width: 576px) {  
+
+}
+
+@media (min-width: 768px) {  
+
+}
+
+@media (min-width: 992px) {  
+    header {
+        width: 350px;
+        transform: translateY(0%);
+
+        &:has(label):has(:checked) {
+            transform: translateY(0%);
+        }
+
+        label {
+            display: none;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+
+            img {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+
+        ul {
+            height: 65%;
+            overflow-y: scroll;
+        }
+    }
+}
+
+@media (min-width: 1200px) {  
+
+}
+
+@media (min-width: 1400px) {  
+
+}
