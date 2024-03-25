@@ -1,7 +1,8 @@
-@import "./variables.css";
-@import "./header.css";
-@import "./section.css";
-@import "./breakpoints.css";
+@import './variables.css';
+@import './header.css';
+@import './section.css';
+@import './breakpoints.css';
+@import './tooltips.css';
 
 * {
     margin: 0px;
@@ -34,6 +35,5 @@ body {
         height: 2000px;
 
         /* overflow: hidden; */
-
     }
 }
