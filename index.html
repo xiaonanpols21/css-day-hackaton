@@ -1,33 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Day</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    <h1>CSS Day wordmap</h1>
+    <h1 class="visually-hidden">CSS Day wordmap</h1>
+    <section>
+        <h2 class="visually-hidden">Map</h2>
+        <div class="test">
+            <img src="img/logo.svg" alt="CSS Day Logo">
+        </div>
+    </section>
     <header>
-        <nav>
-            <ul>
-                <li><button>2014</button></li>
-                <li><button>2015</button></li>
-                <li><button>2016</button></li>
-                <li><button>2017</button></li>
-                <li><button>2018</button></li>
-                <li><button>2019</button></li>
-                <li><button>2020</button></li>
-                <li><button>2021</button></li>
-                <li><button>2022</button></li>
-                <li><button>2023</button></li>
-                <li><button>2024</button></li>
-                <li><button>Show all</button></li>
-            </ul>
-        </nav>
+        <label class="open-menu">
+            <input type="checkbox">
+        </label>
+        <div>
+            <nav>
+                <ul>
+                    <li><button>Show all</button></li>
+                    <li><button>2013</button></li>
+                    <li><button>2014</button></li>
+                    <li><button>2015</button></li>
+                    <li><button>2016</button></li>
+                    <li><button>2017</button></li>
+                    <li><button>2018</button></li>
+                    <li><button>2019</button></li>
+                    <li><button>2022</button></li>
+                    <li><button>2023</button></li>
+                    <li><button>2024</button></li>
+                </ul>
+            </nav>
+            <img class="logo" src="img/logo.svg" alt="CSS Day Logo">
+        </div>
     </header>
     <main>
-        <!-- LIST WITH ALL OF THE SPEAKERS FROM THAT YEAR (IF ALL SHOW ALL YEARS IS SELECTED, ALL SPEAKERS WILL APPEAR IN THIS LIST) -->
-        <ul>
+        <!-- SECTION FOR THE UL'S OF THE SPEAKERS -->
+        <section class="speakerSection">
 
-        </ul>
+        </section>
         <img src="./assets/img/world-map.svg">
     </main>
     
