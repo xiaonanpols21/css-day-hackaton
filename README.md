@@ -28,6 +28,8 @@ Misschien:
 <img src="media/readme-img/schets3.jpg" width="500px" alt="Schets">
 <img src="media/readme-img/schets4.jpg" width="500px" alt="Schets">
 <img src="media/readme-img/schets5.jpg" width="500px" alt="Schets">
+<img src="media/readme-img/ideegeneratie.png" width="500px" alt="Schets">
+<img src="media/readme-img/FinalSchets.png" width="500px" alt="Schets">
 
 
 ## Bronnen
