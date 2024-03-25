@@ -1,35 +1,68 @@
-main ul ul {
-    position: absolute;
-    width: 5em;
-    aspect-ratio: 1;
-    background-color: white;
-    list-style: none;
+div:has(input:checked) ul {
+    display: block;
+    opacity: 1;
+    background: white;
 }
 
-main div:has(input:checked) ul {
-    display: block;
-    background: hotpink;
+div:has(input:checked) label {
+    background-color: brown;
+}
+
+label:hover {
+    outline: solid white 6px;
 }
 
 label {
     position: absolute;
     background-color: red;
-    width: 10em;
+    width: 5em;
     aspect-ratio: 1;
     cursor: pointer;
+
+    transform-origin: bottom right;
+    transform: rotate(45deg) scale(0.5);
+    border-radius: 100% 100% 0 100%;
+
+    transition: 0.2s;
 }
 
 input {
-    display: block;
-    width: 5em;
-    aspect-ratio: 1;
-}
-
-.hidden {
     display: none;
 }
 
-.us {
-    left: 420px;
-    top: 440px;
+/* tooltip */
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.tooltip {
+    transform: translate(6em, 2em);
+    padding: 1em;
+
+    position: absolute;
+    list-style: none;
+    outline: solid 5px peru;
+}
+
+/* country positioning */
+.US {
+    left: 400px;
+    top: 400px;
+    background-image: var(--US);
+    background-size: cover;
+}
+
+.NL {
+    left: 860px;
+    top: 295px;
+    background-image: var(--NL);
+    background-size: cover;
+}
+
+.UK {
+    left: 800px;
+    top: 295px;
+    background-image: var(--UK);
+    background-size: cover;
 }
