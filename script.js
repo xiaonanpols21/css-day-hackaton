@@ -18,5 +18,4 @@ fetchSpeakers().then(() => {
         console.log(element.avatar);
         console.log(element.country);
     });
-//   console.log(cssDaySpeakers);
 });
