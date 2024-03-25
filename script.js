@@ -11,7 +11,18 @@ async function fetchSpeakers() {
   }
 }
 
+<<<<<<< Updated upstream
 fetchSpeakers();
+=======
+fetchSpeakers().then(() => {
+    cssDaySpeakers.forEach(element => {
+        // console.log(element.name);
+        // console.log(element.link);
+        // console.log(element.avatar);
+        console.log(element.country);
+    });
+});
+>>>>>>> Stashed changes
 
 const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
 
