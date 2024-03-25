@@ -1,4 +1,4 @@
-// HAALT DE DATA OP VAN DE CSSDAY SPREKERS
+// FETCHES DATA OF THE CSSDAY SPEAKERS
 let cssDaySpeakers;
 
 async function fetchSpeakers() {
@@ -13,9 +13,20 @@ async function fetchSpeakers() {
 
 fetchSpeakers().then(() => {
     cssDaySpeakers.forEach(element => {
-        console.log(element.name);
-        console.log(element.link);
-        console.log(element.avatar);
-        console.log(element.country);
+        // console.log(element.name);
+        // console.log(element.link);
+        // console.log(element.avatar);
+        // console.log(element.country);
     });
 });
+
+
+const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
+
+yearSelectorButtons.forEach(button =>{
+  button.addEventListener('click', function() {
+    console.log(button.innerText);
+  });
+});
+
+console.log(yearSelectorButtons);
