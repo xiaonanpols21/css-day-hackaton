@@ -37,5 +37,3 @@ yearSelectorButtons.forEach(button =>{
     });
   });
 });
-
-// console.log(yearSelectorButtons);
