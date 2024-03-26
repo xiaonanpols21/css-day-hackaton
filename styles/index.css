@@ -2,38 +2,38 @@
 @import "./header.css";
 @import "./section.css";
 @import "./breakpoints.css";
+@import "./map.css";
 
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: blue;
-    font-family: var(--font-stack);
+  background-color: blue;
+  font-family: var(--font-stack);
 }
 
 .visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .test {
-    width: 500px;
-    height: 500px;
-    overflow: auto;
+  width: 500px;
+  height: 500px;
+  overflow: auto;
 
-    img {
-        width: 2000px;
-        height: 2000px;
+  img {
+    width: 2000px;
+    height: 2000px;
 
-        /* overflow: hidden; */
-
-    }
+    /* overflow: hidden; */
+  }
 }

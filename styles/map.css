@@ -1,0 +1,8 @@
+.mapSection {
+  display: block;
+  cursor: grab;
+}
+
+.mapSection:active {
+  cursor: grabbing;
+}
