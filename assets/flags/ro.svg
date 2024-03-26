@@ -1,7 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-ro" viewBox="0 0 512 512">
-  <g fill-rule="evenodd" stroke-width="1pt">
-    <path fill="#00319c" d="M0 0h170.7v512H0z"/>
-    <path fill="#ffde00" d="M170.7 0h170.6v512H170.7z"/>
-    <path fill="#de2110" d="M341.3 0H512v512H341.3z"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="flag-icons-ro" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#00319C;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFDE00;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#DE2110;}
+</style>
+<g>
+	<path class="st0" d="M-261,256L-88.6,83.6l517,517L256,773L-261,256z"/>
+	<path class="st1" d="M-88.6,83.6L83.6-88.6l517,517L428.4,600.6L-88.6,83.6z"/>
+	<path class="st2" d="M83.6-88.6L256-261l517,517L600.6,428.4L83.6-88.6z"/>
+</g>
 </svg>

@@ -1,16 +1,3 @@
-div:has(input:checked) {
-    ul {
-        display: block;
-        opacity: 1;
-        background: var(--white);
-        /* box-shadow: 0.3em 0.3em 1em #0005; */
-    }
-
-    label {
-        outline: solid var(--white) 6px;
-    }
-}
-
 label:hover {
     outline: solid var(--white) 6px;
 }
@@ -22,13 +9,13 @@ li {
 /* pin */
 div label {
     position: absolute;
-    background-color: red;
+    background: var(--white);
     width: 5em;
     aspect-ratio: 1;
     cursor: pointer;
 
     transform-origin: bottom right;
-    /* transform: rotate(45deg) scale(0.4); */
+    transform: rotate(45deg) scale(0.4);
     border-radius: 100% 100% 0 100%;
 
     transition: 0.2s;
@@ -38,6 +25,82 @@ div label {
 
 input {
     display: none;
+}
+
+/* tooltip */
+.hidden {
+    display: none;
+}
+
+@keyframes show {
+    0% {
+        transform: translate(6em, 6em);
+        opacity: 0;
+        max-height: 0;
+    }
+
+    100% {
+        transform: translate(6em, 2em);
+        opacity: 1;
+        max-height: 20em;
+    }
+}
+
+.tooltip {
+    opacity: 0;
+    animation: show 0.8s both cubic-bezier(0.06, 0.51, 0.18, 1.01);
+}
+
+div:has(input:checked) {
+    .tooltip {
+        transform: translate(6em, 2em);
+        padding: 1em;
+
+        position: absolute;
+        list-style: none;
+        outline: solid 3px #ccc;
+        z-index: 4;
+        border-radius: 5px;
+
+        display: block;
+        opacity: 1;
+        background: var(--white);
+        box-shadow: 0.3em 0.3em 1em #0005;
+
+        max-height: 20em;
+        overflow: scroll;
+
+        scrollbar-width: thin;
+    }
+
+    .tooltip ul {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: start;
+    }
+
+    .tooltip a {
+        color: black;
+
+        &:hover,
+        &:focus-visible {
+            background: yellow;
+        }
+    }
+
+    .tooltip ul li {
+        padding-left: 0.5em;
+    }
+
+    .tooltip ul img {
+        width: 2.5em;
+        border-radius: 100%;
+    }
+
+    label {
+        outline: solid var(--white) 6px;
+    }
 }
 
 /* animation */
@@ -142,28 +205,27 @@ div:nth-of-type(20) label {
     animation-delay: 2s;
 }
 
-/* tooltip */
-.hidden {
-    display: none;
-    opacity: 0;
-}
-
-.tooltip {
-    transform: translate(6em, 2em);
-    padding: 1em;
-
-    position: absolute;
-    list-style: none;
-    outline: solid 5px peru;
-    z-index: 1;
-}
-
 /* country positioning */
 .US {
     left: 400px;
     top: 400px;
     background-image: var(--US);
     background-size: cover;
+    overflow: hidden;
+
+    /* &::after {
+        content: '';
+
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        z-index: -3;
+        background-image: var(--US);
+        background-size: cover;
+        transform: rotate(-45deg);
+    } */
 }
 
 .CA {
@@ -177,6 +239,13 @@ div:nth-of-type(20) label {
     left: 860px;
     top: 295px;
     background-image: var(--NL);
+    background-size: cover;
+}
+
+.BE {
+    left: 855px;
+    top: 300px;
+    background-image: var(--BE);
     background-size: cover;
 }
 
@@ -282,5 +351,12 @@ div:nth-of-type(20) label {
     left: 950px;
     top: 350px;
     background-image: var(--RO);
+    background-size: cover;
+}
+
+.SG {
+    left: 1275px;
+    top: 580px;
+    background-image: var(--SG);
     background-size: cover;
 }
