@@ -3,7 +3,6 @@
 @import './section.css';
 @import './breakpoints.css';
 @import './tooltips.css';
-@import './intro-animation.css';
 
 * {
     margin: 0px;
@@ -12,7 +11,7 @@
 }
 
 body {
-    background-color: red;
+    background-color: deepskyblue;
     font-family: var(--font-stack);
 }
 
