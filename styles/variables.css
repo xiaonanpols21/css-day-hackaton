@@ -3,6 +3,8 @@
     --gray: #cccccc;
     --font-stack: 'Source Code Pro', monospace;
 
+    --n: 20;
+
     /* country flags */
     --US: url('../assets/flags/us.svg');
     --ES: url('../assets/flags/es.svg');
