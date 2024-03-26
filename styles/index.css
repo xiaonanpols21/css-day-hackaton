@@ -43,25 +43,3 @@ body {
         /* overflow: hidden; */
     }
 }
-
-/* give index to every child */
-:nth-child(1) {--i: 1;}
-:nth-child(2) {--i: 2;}
-:nth-child(3) {--i: 3;}
-:nth-child(4) {--i: 4;}
-:nth-child(5) {--i: 5;}
-:nth-child(6) {--i: 6;}
-:nth-child(7) {--i: 7;}
-:nth-child(8) {--i: 8;}
-:nth-child(9) {--i: 9;}
-:nth-child(10) {--i: 10;}
-:nth-child(11) {--i: 11;}
-:nth-child(12) {--i: 12;}
-:nth-child(13) {--i: 13;}
-:nth-child(14) {--i: 14;}
-:nth-child(15) {--i: 15;}
-:nth-child(16) {--i: 16;}
-:nth-child(17) {--i: 17;}
-:nth-child(18) {--i: 18;}
-:nth-child(19) {--i: 19;}
-:nth-child(20) {--i: 20;}

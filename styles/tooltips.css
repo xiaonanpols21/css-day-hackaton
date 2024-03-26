@@ -20,7 +20,7 @@ li {
 }
 
 /* pin */
-label {
+div label {
     position: absolute;
     background-color: red;
     width: 5em;
@@ -275,5 +275,12 @@ div:nth-of-type(20) label {
     left: 797px;
     top: 375px;
     background-image: var(--PT);
+    background-size: cover;
+}
+
+.RO {
+    left: 950px;
+    top: 350px;
+    background-image: var(--RO);
     background-size: cover;
 }
