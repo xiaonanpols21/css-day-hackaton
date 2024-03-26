@@ -69,9 +69,9 @@ yearSelectorButtons.forEach(button =>{
         });
       })
     } else{
-      const speakersForYear = cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText));
+      // const speakersForYear = cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText));
       // MAKES A LIST WITH ONLY THE COUNTRIES THAT HAVE SPEAKERS
-      const countriesWithSpeakers = [...new Set(speakersForYear.map(speaker => speaker.country))];
+      const countriesWithSpeakers = [...new Set(cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText)).map(speaker => speaker.country))];
 
       countriesWithSpeakers.forEach(country => {
         // CREATES DIV FOR THE COUNTRY
