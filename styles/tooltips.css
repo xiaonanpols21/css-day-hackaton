@@ -1,0 +1,179 @@
+div:has(input:checked) {
+    ul {
+        display: block;
+        opacity: 1;
+        background: var(--white);
+        /* box-shadow: 0.3em 0.3em 1em #0005; */
+    }
+
+    label {
+        outline: solid var(--white) 6px;
+    }
+}
+
+label:hover {
+    outline: solid var(--white) 6px;
+}
+
+li {
+    list-style: none;
+}
+
+div ul {
+    margin-bottom: 0.5em;
+}
+
+/* pin */
+label {
+    position: absolute;
+    background-color: red;
+    width: 5em;
+    aspect-ratio: 1;
+    cursor: pointer;
+
+    transform-origin: bottom right;
+    transform: rotate(45deg) scale(0.4);
+    border-radius: 100% 100% 0 100%;
+
+    transition: 0.2s;
+}
+
+input {
+    display: none;
+}
+
+/* tooltip */
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.tooltip {
+    transform: translate(6em, 2em);
+    padding: 1em;
+
+    position: absolute;
+    list-style: none;
+    outline: solid 5px peru;
+    z-index: 1;
+}
+
+/* country positioning */
+.US {
+    left: 400px;
+    top: 400px;
+    background-image: var(--US);
+    background-size: cover;
+}
+
+.CA {
+    left: 370px;
+    top: 270px;
+    background-image: var(--CA);
+    background-size: cover;
+}
+
+.NL {
+    left: 860px;
+    top: 295px;
+    background-image: var(--NL);
+    background-size: cover;
+}
+
+.SE {
+    left: 870px;
+    top: 240px;
+    background-image: var(--SE);
+    background-size: cover;
+}
+
+.NO {
+    left: 900px;
+    top: 240px;
+    background-image: var(--NO);
+    background-size: cover;
+}
+
+.NG {
+    left: 870px;
+    top: 550px;
+    background-image: var(--NG);
+    background-size: cover;
+}
+
+.DE {
+    left: 880px;
+    top: 310px;
+    background-image: var(--DE);
+    background-size: cover;
+}
+
+.AT {
+    left: 900px;
+    top: 320px;
+    background-image: var(--AT);
+    background-size: cover;
+}
+
+.LU {
+    left: 870px;
+    top: 300px;
+    background-image: var(--LU);
+    background-size: cover;
+}
+
+.GR {
+    left: 930px;
+    top: 350px;
+    background-image: var(--GR);
+    background-size: cover;
+}
+
+.LB {
+    left: 1000px;
+    top: 400px;
+    background-image: var(--LB);
+    background-size: cover;
+}
+
+.IL {
+    left: 992px;
+    top: 425px;
+    background-image: var(--IL);
+    background-size: cover;
+}
+
+.JP {
+    left: 1450px;
+    top: 400px;
+    background-image: var(--JP);
+    background-size: cover;
+}
+
+.UK {
+    left: 800px;
+    top: 295px;
+    background-image: var(--UK);
+    background-size: cover;
+}
+
+.FR {
+    left: 840px;
+    top: 330px;
+    background-image: var(--FR);
+    background-size: cover;
+}
+
+.ES {
+    left: 815px;
+    top: 370px;
+    background-image: var(--ES);
+    background-size: cover;
+}
+
+.PT {
+    left: 797px;
+    top: 375px;
+    background-image: var(--PT);
+    background-size: cover;
+}

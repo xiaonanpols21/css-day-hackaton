@@ -1,0 +1,37 @@
+:root {
+    --US: url(./assets/flags/us.svg);
+    --ES: url(./assets/flags/es.svg);
+    --NL: url(./assets/flags/nl.svg);
+    --CA: url(./assets/flags/ca.svg);
+    --DE: url(./assets/flags/de.svg);
+    --UK: url(./assets/flags/uk.svg);
+    --FR: url(./assets/flags/fr.svg);
+    --LB: url(./assets/flags/lb.svg);
+    --AT: url(./assets/flags/at.svg);
+    --PT: url(./assets/flags/pt.svg);
+    --IL: url(./assets/flags/il.svg);
+    --SE: url(./assets/flags/se.svg);
+    --LU: url(./assets/flags/lu.svg);
+    --JP: url(./assets/flags/jp.svg);
+    --NO: url(./assets/flags/no.svg);
+    --NG: url(./assets/flags/ng.svg);
+    --GR: url(./assets/flags/gr.svg);
+}
+
+main {
+    position: relative;
+}
+
+main div {
+    position: absolute;
+    width: 2em;
+    aspect-ratio: 1;
+    background-color: peru;
+    background-image: var(--UK);
+    background-size: cover;
+}
+
+.us {
+    top: 10em;
+    left: 20em;
+}
