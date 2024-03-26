@@ -6,12 +6,34 @@ async function fetchSpeakers() {
     const response = await fetch('https://cssday.nl/data/speakers.json');
     const data = await response.json();
     cssDaySpeakers = data;
+
+    // Get the colors of the years
+    const colorsByYear = {};
+    data.forEach(speaker => {
+      const colorHex = speaker.edition.color.hex;
+      const year = speaker.edition.year;
+      if (!colorsByYear[year]) {
+        colorsByYear[year] = colorHex;
+      }
+    });
+    console.log(colorsByYear); 
+
+    // Set background colors for each year
+    for (const [year, colorHex] of Object.entries(colorsByYear)) {
+      const property = `--btn-${year}`;
+      document.documentElement.style.setProperty(property, colorHex);
+      console.log(`Set ${property} to ${colorHex}`);
+    }
+
+
   } catch (error) {
     console.error('Error:', error);
   }
 }
-
 fetchSpeakers();
+
+document.documentElement.style.setProperty("--btn-2013", "#3498db");
+
 
 const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
 
