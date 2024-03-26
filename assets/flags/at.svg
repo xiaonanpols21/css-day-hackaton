@@ -1,6 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-at" viewBox="0 0 512 512">
-  <g fill-rule="evenodd">
-    <path fill="#fff" d="M512 512H0V0h512z"/>
-    <path fill="#c8102e" d="M512 512H0V341.3h512zm0-341.2H0V.1h512z"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="flag-icons-at" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#C8102E;}
+</style>
+<g>
+	<path class="st0" d="M772,256L256,772l-516-516l516-516L772,256z"/>
+	<path class="st1" d="M772,256L256,772L84,600L600,84L772,256z M428.1-87.9l-516,516l-172-172l516-516L428.1-87.9z"/>
+</g>
 </svg>
