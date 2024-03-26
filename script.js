@@ -18,14 +18,7 @@ async function fetchSpeakers() {
   }
 }
 
-fetchSpeakers().then(() => {
-    cssDaySpeakers.forEach(element => {
-        // console.log(element.name);
-        // console.log(element.link);
-        // console.log(element.avatar);
-        console.log(element.country);
-    });
-});
+fetchSpeakers();
 
 const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
 
@@ -34,13 +27,38 @@ yearSelectorButtons.forEach(button =>{
     const speakerSection = document.querySelector('.speakerSection');
     speakerSection.innerHTML = '';
 
-    
     if (button.innerText == "Show all"){
       uniqueCountries.forEach(country => {
+        // CREATES DIV FOR THE COUNTRY
+        const countryDiv = document.createElement('div');
+
+        // ADDS THE COUNTRY DIV TO THE SPEAKERSECTION
+        speakerSection.appendChild(countryDiv);
+
+        // CREATES A LABEL FOR THE COUNTRY
+        const countrylabel = document.createElement('label');
+
+        // ADDS THE CLASS OF THE COUNTRY TO THE LABEL
+        countrylabel.classList.add(country);
+
+        // CREATES INPUT FOR INSIDE THE LABEL WILL BE SET TO CHECKBOX
+        const countryInput = document.createElement('input');
+        countryInput.setAttribute('type', 'radio');
+        countryInput.setAttribute('name', 'countrySelector');
+
+        // ADDS INPUT TO THE LABEL
+        countrylabel.appendChild(countryInput);
+
+        // ADDS THE LABEL TO THE DIV
+        countryDiv.appendChild(countrylabel);
+
+        // CREATES UL FOR THE SPEAKERS AND ADS A CLASS
         const countryUl = document.createElement('ul');
-        countryUl.classList.add(country);
-        speakerSection.appendChild(countryUl);
-    
+        countryUl.classList.add(`tooltip`, `${country}`, `hidden`);
+
+        // ADDS UL TO THE COUNTRY DIV
+        countryDiv.appendChild(countryUl);
+
         cssDaySpeakers.filter(speaker => speaker.country === country).forEach(speakerPerCountry => {
           countryUl.innerHTML +=
               `<ul>
@@ -53,11 +71,38 @@ yearSelectorButtons.forEach(button =>{
     } else{
       const speakersForYear = cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText));
       // MAKES A LIST WITH ONLY THE COUNTRIES THAT HAVE SPEAKERS
-      const countriesWithSpeakers = [...new Set(speakersForYear.map(speaker => speaker.country))]
+      const countriesWithSpeakers = [...new Set(speakersForYear.map(speaker => speaker.country))];
+
       countriesWithSpeakers.forEach(country => {
-       const countryUl = document.createElement('ul');
-       countryUl.classList.add(country);
-       speakerSection.appendChild(countryUl);
+        // CREATES DIV FOR THE COUNTRY
+        const countryDiv = document.createElement('div');
+
+        // ADDS THE COUNTRY DIV TO THE SPEAKERSECTION
+        speakerSection.appendChild(countryDiv);
+
+        // CREATES A LABEL FOR THE COUNTRY
+        const countrylabel = document.createElement('label');
+
+        // ADDS THE CLASS OF THE COUNTRY TO THE LABEL
+        countrylabel.classList.add(country);
+
+        // CREATES INPUT FOR INSIDE THE LABEL WILL BE SET TO CHECKBOX
+        const countryInput = document.createElement('input');
+        countryInput.setAttribute('type', 'radio');
+        countryInput.setAttribute('name', 'countrySelector');
+
+        // ADDS INPUT TO THE LABEL
+        countrylabel.appendChild(countryInput);
+
+        // ADDS THE LABEL TO THE DIV
+        countryDiv.appendChild(countrylabel);
+
+        // CREATES UL FOR THE SPEAKERS AND ADS A CLASS
+        const countryUl = document.createElement('ul');
+        countryUl.classList.add(`tooltip`, `${country}`, `hidden`);
+
+        // ADDS UL TO THE COUNTRY DIV
+        countryDiv.appendChild(countryUl);
     
        cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText)).forEach(speakerPerCountry => {
            countryUl.innerHTML +=
