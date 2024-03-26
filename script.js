@@ -103,7 +103,7 @@ yearSelectorButtons.forEach(button =>{
         // ADDS UL TO THE COUNTRY DIV
         countryDiv.appendChild(countryUl);
     
-       cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText)).forEach(speakerPerCountry => {
+        cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.textContent) && speaker.country === country).forEach(speakerPerCountry => {
            countryUl.innerHTML +=
            `<ul>
            <li><a href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
