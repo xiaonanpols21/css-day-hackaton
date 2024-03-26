@@ -1,6 +1,7 @@
 @import "./variables.css";
 @import "./header.css";
 @import "./section.css";
+@import "./title-animation.css";
 @import "./breakpoints.css";
 
 * {

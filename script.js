@@ -1,3 +1,15 @@
+// Select the element with the specified class
+const myElement = document.querySelector('.container');
+
+// Function to hide the element after a certain time delay
+function hideElement() {
+    myElement.style.display = 'none'; // Set display to 'none'
+}
+
+// Set a timeout to call the hideElement function after 2000 milliseconds (2 seconds)
+setTimeout(hideElement, 5500);
+
+
 // FETCHES DATA OF THE CSSDAY SPEAKERS
 let cssDaySpeakers;
 
@@ -31,9 +43,6 @@ async function fetchSpeakers() {
   }
 }
 fetchSpeakers();
-
-document.documentElement.style.setProperty("--btn-2013", "#3498db");
-
 
 const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
 
