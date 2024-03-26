@@ -64,6 +64,7 @@ yearSelectorButtons.forEach(button =>{
               `<ul>
               <li><a href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
               <li><img src="${speakerPerCountry.avatar}"</li>
+              <li>${speakerPerCountry.country}</li>
               </ul>`
         });
       })
@@ -108,6 +109,7 @@ yearSelectorButtons.forEach(button =>{
            `<ul>
            <li><a href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
            <li><img src="${speakerPerCountry.avatar}"</li>
+           <li>${speakerPerCountry.country}</li>
            </ul>`
        });
        

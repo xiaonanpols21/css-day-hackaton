@@ -1,5 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-de" viewBox="0 0 512 512">
-  <path fill="#fc0" d="M0 341.3h512V512H0z"/>
-  <path fill="#000001" d="M0 0h512v170.7H0z"/>
-  <path fill="red" d="M0 170.7h512v170.6H0z"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="flag-icons-de" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFCC00;}
+	.st1{fill:#000001;}
+	.st2{fill:#FF0000;}
+</style>
+<path class="st0" d="M84.6,598.6l514-514L770,256L256,770L84.6,598.6z"/>
+<path class="st1" d="M-258,256l514-514L427.4-86.6l-514,514L-258,256z"/>
+<path class="st2" d="M-86.6,427.4l514-514L598.6,84.6l-514,514L-86.6,427.4z"/>
 </svg>
