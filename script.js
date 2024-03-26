@@ -51,7 +51,7 @@ const body = document.querySelector("body");
 yearSelectorButtons.forEach(button =>{
   button.addEventListener('click', function() {
     const speakerSection = document.querySelector('.speakerSection');
-    speakerSection.innerHTML = '';
+    speakerSection.innerHTML = '<img class="kaart" src="./assets/img/world-map.svg">';
 
     if (button.innerText == "Show all"){
       uniqueCountries.forEach(country => {

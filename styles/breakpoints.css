@@ -1,13 +1,10 @@
-
-@media (min-width: 576px) {  
-
+@media (min-width: 576px) {
 }
 
-@media (min-width: 768px) {  
-
+@media (min-width: 768px) {
 }
 
-@media (min-width: 992px) {  
+@media (min-width: 992px) {
     .logo {
         height: 100px;
     }
@@ -41,18 +38,18 @@
             overflow-y: scroll;
 
             &::before {
-                content: "";
+                content: '';
                 position: fixed;
                 bottom: 20px;
                 right: 20px;
                 width: 50px;
                 height: 17px;
-                background-image: url("../img/arrow-down.svg");
+                background-image: url('../img/arrow-down.svg');
                 background-repeat: no-repeat;
                 background-size: contain;
                 animation: arrow 2s infinite;
             }
-            
+
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -62,14 +59,14 @@
 
 @keyframes arrow {
     0% {
-        transform:translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-        transform:translateY(-20px);
+        transform: translateY(-20px);
     }
 
     100% {
-        transform:translateY(0px);
+        transform: translateY(0px);
     }
 }

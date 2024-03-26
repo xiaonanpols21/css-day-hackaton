@@ -33,7 +33,7 @@ header {
             background-color: /*--btn-bg-color,*/ var(--gray);
             border: 4px solid var(--gray);
             color: var(--white);
-            transition: .4s;
+            transition: 0.4s;
             cursor: pointer;
 
             &:hover {
@@ -200,6 +200,5 @@ header {
 }
 
 .active {
-    border: 4px solid var(--black) ;
+    border: 4px solid var(--black);
 }
-
