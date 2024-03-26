@@ -1,8 +1,24 @@
+header {
+  z-index: 99;
+}
+
+main {
+  position: relative;
+}
+
 .mapSection {
   display: block;
-  cursor: grab;
+  height: 100vh;
+  width: 85vw;
+  position: absolute;
+  right: 0;
+  overflow: hidden;
 }
 
 .mapSection:active {
   cursor: grabbing;
+}
+
+.mapSection svg {
+  filter: invert(1) grayscale(1) brightness(2);
 }
