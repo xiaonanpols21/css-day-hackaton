@@ -1,14 +1,10 @@
-// Select the element with the specified class
+// Animation Set Time Out
 const myElement = document.querySelector('.container');
 
-// Function to hide the element after a certain time delay
 function hideElement() {
-    myElement.style.display = 'none'; // Set display to 'none'
+  myElement.style.display = 'none';
 }
-
-// Set a timeout to call the hideElement function after 2000 milliseconds (2 seconds)
 setTimeout(hideElement, 5500);
-
 
 // FETCHES DATA OF THE CSSDAY SPEAKERS
 let cssDaySpeakers;
@@ -24,11 +20,11 @@ async function fetchSpeakers() {
     data.forEach(speaker => {
       const colorHex = speaker.edition.color.hex;
       const year = speaker.edition.year;
+
       if (!colorsByYear[year]) {
         colorsByYear[year] = colorHex;
       }
     });
-    console.log(colorsByYear); 
 
     // Set background colors for each year
     for (const [year, colorHex] of Object.entries(colorsByYear)) {
@@ -45,6 +41,7 @@ async function fetchSpeakers() {
 fetchSpeakers();
 
 const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
+const body = document.querySelector("body");
 
 yearSelectorButtons.forEach(button =>{
   button.addEventListener('click', function() {
@@ -54,6 +51,8 @@ yearSelectorButtons.forEach(button =>{
     
     if (button.innerText == "Show all"){
       speakersForYear = cssDaySpeakers;
+      body.classList.add("bg-color")
+
     } else {
       speakersForYear = cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText)); // wijzig de waarde van speakersForYear hier
     }
