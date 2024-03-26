@@ -1,3 +1,11 @@
+// Animation Set Time Out
+const myElement = document.querySelector('.container');
+
+function hideElement() {
+  myElement.style.display = 'none';
+}
+setTimeout(hideElement, 5500);
+
 // FETCHES DATA OF THE CSSDAY SPEAKERS
 let cssDaySpeakers;
 
@@ -12,15 +20,33 @@ async function fetchSpeakers() {
 
     // ADD COUNTRIES TO THE SET
     cssDaySpeakers.forEach(speaker => uniqueCountries.add(speaker.country));
+    // Get the colors of the years
+    const colorsByYear = {};
+    data.forEach(speaker => {
+      const colorHex = speaker.edition.color.hex;
+      const year = speaker.edition.year;
+
+      if (!colorsByYear[year]) {
+        colorsByYear[year] = colorHex;
+      }
+    });
+
+    // Set background colors for each year
+    for (const [year, colorHex] of Object.entries(colorsByYear)) {
+      const property = `--btn-${year}`;
+      document.documentElement.style.setProperty(property, colorHex);
+      console.log(`Set ${property} to ${colorHex}`);
+    }
+
 
   } catch (error) {
     console.error('Error:', error);
   }
 }
-
 fetchSpeakers();
 
 const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
+const body = document.querySelector("body");
 
 yearSelectorButtons.forEach(button =>{
   button.addEventListener('click', function() {

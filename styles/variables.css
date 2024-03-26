@@ -1,5 +1,7 @@
 :root {
     --white: white;
+    --black: black;
+    --purple: #33184d;
     --gray: #cccccc;
     --font-stack: 'Source Code Pro', monospace;
 
@@ -24,4 +26,18 @@
     --RO: url('../assets/flags/ro.svg');
     --SG: url('../assets/flags/sg.svg');
     --BE: url('../assets/flags/be.svg');
+
+    --gray-rgb: 204, 204, 204;
+    --font-stack: "Source Code Pro", monospace;
+
+    --btn-2013: white;
+    --btn-2014: white;
+    --btn-2015: white;
+    --btn-2016: white;
+    --btn-2017: white;
+    --btn-2018: white;
+    --btn-2019: white;
+    --btn-2022: white;
+    --btn-2023: white;
+    --btn-2024: white;
 }
