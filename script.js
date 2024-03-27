@@ -171,9 +171,11 @@ zoomInButton.addEventListener('click', function(){
   scale += 0.3; // Increase the scale
   if (scale >= 3){
     document.documentElement.style.setProperty('--zoom-in-button-color', 'rgba(51, 24, 77, 0.5)');
+    document.documentElement.style.setProperty('--zoom-in-cursor', 'not-allowed');
     scale = 3;
   } else{
     document.documentElement.style.setProperty('--zoom-out-button-color', 'rgba(51, 24, 77, 1)');
+    document.documentElement.style.setProperty('--zoom-out-cursor', 'pointer');
   }
   speakerSection.style.transform = `scale(${scale})`; // Apply the scale
 });
@@ -183,8 +185,10 @@ zoomOutButton.addEventListener('click', function(){
   if(scale <= 1){
     scale = 1;
     document.documentElement.style.setProperty('--zoom-out-button-color', 'rgba(51, 24, 77, 0.5)');
+    document.documentElement.style.setProperty('--zoom-out-cursor', 'not-allowed');
   } else{
     document.documentElement.style.setProperty('--zoom-in-button-color', 'rgba(51, 24, 77, 1)');
+    document.documentElement.style.setProperty('--zoom-in-cursor', 'pointer');
   }
   speakerSection.style.transform = `scale(${scale})`; // Apply the scale
 });

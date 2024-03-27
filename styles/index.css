@@ -50,14 +50,13 @@ body {
     &&:first-of-type{
         bottom:10rem;
         background-color: var(--zoom-in-button-color);
+        cursor: var(--zoom-in-cursor);
+
     }
     &&:nth-of-type(2){
         background-color: var(--zoom-out-button-color);
+        cursor: var(--zoom-out-cursor);
         bottom:6rem;
-    }
-    &&:active{
-        transition: 0.1s;
-        opacity: 0.7;
     }
     }
 }

@@ -6,6 +6,9 @@
     --zoom-in-button-color: rgba(51, 24, 77, 1);
     --zoom-out-button-color: rgba(51, 24, 77, 0.5);
 
+    --zoom-in-cursor: pointer;
+    --zoom-out-cursor: not-allowed;
+
 
     --white: white;
     --black: black;
