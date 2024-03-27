@@ -96,6 +96,7 @@ Samen met een beetje styling in de css is het gelukt om de kaart te zoomen en te
 ### Stephan
 
 **Tooltips**
+
 Ik heb eraan gewerkt om de pins van elk land te stylen. Terwijl Max bezig was met het maken van de script om per jaar de sprekers in te laden, kon ik alvast beginnen met het plaatsen van elke pin. We willen ook dat de pins de vlag van het land hebben als achtergrond.
 
 Uiteindelijk hoe de HTML wordt ingeladen ziet er zo uit:
@@ -158,6 +159,7 @@ Voor elke landcode class heb ik een left en top toegevoegd om die zo een plek te
 ```
 
 **Informatietekst**
+
 Om ervoor te zorgen dat mensen die de website gebruiken wel begrijpen wat de bedoeling is, hebben we een introtekst toegevoegd. We willen ook dat je dat weg kan klikken zodat het niet de hele tijd in beeld zit. 
 
 ```html
@@ -246,6 +248,7 @@ In de HTML heb ik een div met een label en een section gemaakt. Ik gebruik een c
 Dus standaard staat de ```.introContainer``` op een right van -21em. Dit is buiten beeld. Met has kan ik checken of de checkbox is gecheckt, en als dat zo is: zet de right op 0. Daarnaast heb ik nog een beetje styling toegevoegd voor het pijltje dat dan ook veranderd van richting als je de intro tekst open en dicht klapt.
 
 **Focus states**
+
 Om het nog meer toegankelijk te maken heb ik ook nog focus states aan alle interacteerbare elementen gegeven. Op deze manier kan je de website gebruiken zonder de muis. Omdat de meeste interacteerbare elementen inputs zijn terwijl de label de styling moet krijgen, moet ik dit trucje gebruiken:
 
 ```css
