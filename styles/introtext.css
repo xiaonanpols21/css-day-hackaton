@@ -8,13 +8,15 @@
     /* align-items: center; */
 
     transition: 1s;
+    z-index: 1;
 
     input {
-        display: none;
+        opacity: 0;
     }
 
     label {
         background-color: white;
+        outline: solid 1px black;
         background-image: url(../img/arrow-down.svg);
         background-position: center;
         background-repeat: no-repeat;
@@ -32,6 +34,10 @@
         &:hover {
             cursor: pointer;
             background-color: #ccc;
+        }
+
+        &:has(input:focus-visible) {
+            outline: solid 6px lime;
         }
     }
 
@@ -55,5 +61,6 @@
         border-radius: 6px;
         outline: solid black 3px;
         transition: 1s;
+        z-index: 200;
     }
 }
