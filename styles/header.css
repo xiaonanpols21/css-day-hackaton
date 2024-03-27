@@ -21,6 +21,11 @@ header {
         }
     }
 
+    &:has(input:focus-visible) .open-menu {
+        border: solid 4px lime;
+        box-shadow: 0 0 1em lime;
+    }
+
     nav {
         ul {
             display: flex;
@@ -46,24 +51,27 @@ header {
                     color: var(--white);
                     transition: 0.4s;
                     cursor: pointer;
-        
+
                     &:hover {
                         border: 4px solid var(--purple);
                     }
 
                     &:has(input:checked) {
-               
-                            border: 4px solid var(--black);
-                        
+                        border: 4px solid var(--black);
                     }
-        
+
+                    &:has(input:focus-visible) {
+                        border: solid 4px lime;
+                        box-shadow: 0 0 1em lime;
+                    }
+
                     p {
                         position: absolute;
                         left: 50%;
                         transform: translateX(-50%);
                         display: inline-block;
                     }
-        
+
                     input {
                         display: inline-block;
                         opacity: 0;
