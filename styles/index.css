@@ -4,6 +4,7 @@
 @import './title-animation.css';
 @import './breakpoints.css';
 @import './tooltips.css';
+@import './introtext.css';
 
 * {
     margin: 0px;

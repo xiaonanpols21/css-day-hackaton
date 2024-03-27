@@ -1,15 +1,15 @@
-.speakerSection {
-    li {
-        list-style: none;
-    }
+.speakerSection li {
+    list-style: none;
+}
+    
 
-    /* pin */
-    div label {
-        position: absolute;
-        /* background: var(--white); */
-        width: 5em;
-        aspect-ratio: 1;
-        cursor: pointer;
+/* pin */
+.speakerSection div label {
+    position: absolute;
+    /* background: var(--white); */
+    width: 5em;
+    aspect-ratio: 1;
+    cursor: pointer;
 
         transform-origin: bottom right;
         transform: rotate(45deg) scale(0.4);
@@ -26,14 +26,32 @@
         scale: 1.2;
     }
 
-        &:active {
-            scale: 1.4;
-        }
+    &:active {
+        scale: 1.4;
+    }
+}
+
+
+.speakerSection input {
+    display: none;
+}
+
+/* tooltip */
+.hidden {
+    display: none;
+}
+
+@keyframes show {
+    0% {
+        transform: translate(6em, 6em);
+        opacity: 0;
+        max-height: 0;
     }
 
     input {
         display: none;
     }
+}
 
 div:has(input:checked) {
     .tooltip {
@@ -82,8 +100,8 @@ div:has(input:checked) {
         border-radius: 100%;
     }
 
-    label {
-        outline: solid var( --tooltip-outline-color) 12px;
+    .speakerSection label {
+        outline: solid deepskyblue 12px;
     }
 }
 
@@ -167,7 +185,7 @@ div:has(input:checked) {
     div:nth-of-type(20) label {
         animation-delay: 2s;
     }
-}
+
 
 /* tooltip */
 .hidden {
@@ -197,6 +215,7 @@ div:has(input:checked) {
 @keyframes fall-down {
     0% {
         transform: translateY(-1000%) rotate(45deg) scale(0.4);
+        animation-timing-function: linear;
     }
 
     70% {
@@ -211,7 +230,7 @@ div:has(input:checked) {
 
     100% {
         transform: translateY(0) rotate(45deg) scale(0.4);
-        animation-timing-function: ease-out;
+        animation-timing-function: ease-in;
     }
 }
 
