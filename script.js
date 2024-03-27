@@ -159,44 +159,25 @@ yearSelectorButtons.forEach(button =>{
   });
 });
 
-// FUNCTION FOR THE SCROLLING AND ZOOMING
-let initialTouchPos = null;
-let initialScale = 1;
 
-speakerSection.addEventListener('touchstart', function(e) {
-    if (e.touches.length === 2) { // Check if two fingers are touching the screen
-        // Calculate the initial distance between the two fingers
-        initialTouchPos = getDistanceBetweenTouches(e);
-        e.preventDefault();
-    }
+// ZOOM IN AND OUT FUNCTION
+const zoomInButton = document.getElementById('zoomInMap')
+const zoomOutButton = document.getElementById('zoomOutMap')
+let scale = 1;
+
+zoomInButton.addEventListener('click', function(){
+  scale+= 0.3;
+  if (scale > 3){
+    scale = 3;
+  }
+  speakerSection.style.transform = `scale(${scale})`;
 });
 
-speakerSection.addEventListener('touchmove', function(e) {
-    if (e.touches.length === 2) { // Check if two fingers are touching the screen
-        // Calculate the current distance between the two fingers
-        let currentTouchPos = getDistanceBetweenTouches(e);
 
-        // Calculate the scale factor based on the initial and current distance
-        let scaleChange = currentTouchPos / initialTouchPos;
-        scale = initialScale * scaleChange;
-
-        // Apply the scale factor to the section
-        speakerSection.style.transform = `scale(${scale})`;
-        e.preventDefault();
-    }
+zoomOutButton.addEventListener('click', function(){
+  scale-= 0.3;
+  if(scale < 1){
+    scale = 1;
+  }
+  speakerSection.style.transform = `scale(${scale})`;
 });
-
-speakerSection.addEventListener('touchend', function(e) {
-    if (e.touches.length === 0 && initialTouchPos !== null) { // Check if no fingers are touching the screen and a zoom gesture was performed
-        // Update the initial scale to the current scale
-        initialScale = scale;
-        initialTouchPos = null;
-    }
-});
-
-function getDistanceBetweenTouches(e) {
-    // Calculate the distance between the two fingers
-    let xDiff = e.touches[0].clientX - e.touches[1].clientX;
-    let yDiff = e.touches[0].clientY - e.touches[1].clientY;
-    return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-}
