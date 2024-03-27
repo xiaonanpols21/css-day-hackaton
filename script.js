@@ -8,7 +8,7 @@ function hideElement() {
   main.classList.remove("main-animation");
 
 }
-setTimeout(hideElement, 5500);
+setTimeout(hideElement, 3500);
 
 // FETCHES DATA OF THE CSSDAY SPEAKERS
 let cssDaySpeakers;
