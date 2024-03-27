@@ -34,6 +34,7 @@ body {
 
 .speakerSection{
     transition: transform 0.3s ease-in-out;
+    transform-origin:top;
 }
 
 .buttonSection{

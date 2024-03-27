@@ -163,21 +163,20 @@ yearSelectorButtons.forEach(button =>{
 // ZOOM IN AND OUT FUNCTION
 const zoomInButton = document.getElementById('zoomInMap')
 const zoomOutButton = document.getElementById('zoomOutMap')
-let scale = 1;
+let scale = 1; // Initial scale
 
 zoomInButton.addEventListener('click', function(){
-  scale+= 0.3;
+  scale += 0.3; // Increase the scale
   if (scale > 3){
     scale = 3;
   }
-  speakerSection.style.transform = `scale(${scale})`;
+  speakerSection.style.transform = `scale(${scale})`; // Apply the scale
 });
 
-
 zoomOutButton.addEventListener('click', function(){
-  scale-= 0.3;
+  scale -= 0.3; // Decrease the scale
   if(scale < 1){
     scale = 1;
   }
-  speakerSection.style.transform = `scale(${scale})`;
+  speakerSection.style.transform = `scale(${scale})`; // Apply the scale
 });
