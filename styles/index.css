@@ -38,10 +38,6 @@ body {
     }
 }
 
-.container {
-    z-index: 2930;
-}
-
 .kaart {
     width: 1920px;
     height: 1066px;
