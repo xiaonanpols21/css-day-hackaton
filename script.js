@@ -66,7 +66,7 @@ yearSelectorButtons.forEach(button =>{
     if (button.innerText == "Show all"){
       document.documentElement.style.setProperty('--tooltip-outline-color', '#000');
 
-      body.classList.add("bg-color")
+      document.documentElement.style.setProperty('--background-color', '#ccc');
       main.classList.remove("main-animation");
 
       uniqueCountries.forEach(country => {
@@ -103,13 +103,12 @@ yearSelectorButtons.forEach(button =>{
         cssDaySpeakers.filter(speaker => speaker.country === country).forEach(speakerPerCountry => {
           countryUl.innerHTML +=
               `<ul>
-              <li><a href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
+              <li><a target='blank_' href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
               <li><img src="${speakerPerCountry.avatar}"</li>
               </ul>`
         });
       })
     } else{
-      body.classList.remove('bg-color')
       const speakersForYear = cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText));
 
       // console.log(speakersForYear[0].edition.color.hex)
@@ -152,7 +151,7 @@ yearSelectorButtons.forEach(button =>{
         cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.textContent) && speaker.country === country).forEach(speakerPerCountry => {
            countryUl.innerHTML +=
            `<ul>
-           <li><a href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
+           <li><a target='blank_' href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
            <li><img src="${speakerPerCountry.avatar}"</li>
            </ul>`
        });
