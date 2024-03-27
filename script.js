@@ -3,6 +3,8 @@ const myElement = document.querySelector('.container');
 
 function hideElement() {
   myElement.style.display = 'none';
+  main.classList.remove("main-animation");
+
 }
 setTimeout(hideElement, 5500);
 
