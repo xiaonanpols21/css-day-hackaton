@@ -54,6 +54,7 @@ yearSelectorButtons.forEach(button =>{
     speakerSection.innerHTML = '<img class="kaart" src="./assets/img/world-map.svg">';
 
     if (button.innerText == "Show all"){
+      body.classList.add("bg-color")
       uniqueCountries.forEach(country => {
         // CREATES DIV FOR THE COUNTRY
         const countryDiv = document.createElement('div');
