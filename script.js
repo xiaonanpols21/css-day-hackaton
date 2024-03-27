@@ -47,6 +47,8 @@ fetchSpeakers();
 
 const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
 const body = document.querySelector("body");
+const main = document.querySelector("main");
+main.classList.add("main-animation");
 
 yearSelectorButtons.forEach(button =>{
   button.addEventListener('click', function() {
@@ -54,7 +56,10 @@ yearSelectorButtons.forEach(button =>{
     speakerSection.innerHTML = '<img class="kaart" src="./assets/img/world-map.svg">';
 
     if (button.innerText == "Show all"){
+
       body.classList.add("bg-color")
+      main.classList.remove("main-animation");
+
       uniqueCountries.forEach(country => {
         // CREATES DIV FOR THE COUNTRY
         const countryDiv = document.createElement('div');
