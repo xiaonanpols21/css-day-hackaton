@@ -1,8 +1,8 @@
 // Animation Set Time Out
-const myElement = document.querySelector('.container');
+const animationContainer = document.querySelector('.container');
 
 function hideElement() {
-  myElement.style.display = 'none';
+  animationContainer.style.display = 'none';
   main.classList.remove("main-animation");
 
 }
@@ -13,6 +13,10 @@ let cssDaySpeakers;
 
 // CREATE A SET TO ADD UNIQUE COUNTRIES
 let uniqueCountries = new Set()
+
+// GETS THE SPEAKERSECTION
+const speakerSection = document.querySelector('.speakerSection');
+
 
 async function fetchSpeakers() {
   try {
@@ -37,7 +41,6 @@ async function fetchSpeakers() {
     for (const [year, colorHex] of Object.entries(colorsByYear)) {
       const property = `--btn-${year}`;
       document.documentElement.style.setProperty(property, colorHex);
-      console.log(`Set ${property} to ${colorHex}`);
     }
 
 
@@ -154,4 +157,27 @@ yearSelectorButtons.forEach(button =>{
        });
     }
   });
+});
+
+
+// ZOOM IN AND OUT FUNCTION
+const zoomInButton = document.getElementById('zoomInMap')
+const zoomOutButton = document.getElementById('zoomOutMap')
+let scale = 1;
+
+zoomInButton.addEventListener('click', function(){
+  scale+= 0.3;
+  if (scale > 3){
+    scale = 3;
+  }
+  speakerSection.style.transform = `scale(${scale})`;
+});
+
+
+zoomOutButton.addEventListener('click', function(){
+  scale-= 0.3;
+  if(scale < 1){
+    scale = 1;
+  }
+  speakerSection.style.transform = `scale(${scale})`;
 });
