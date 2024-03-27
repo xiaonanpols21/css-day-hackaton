@@ -13,7 +13,7 @@ header {
     background-color: var(--white);
     z-index: 5;
 
-    &:has(.open-menu):has(:checked) {
+    &:has(.open-menu :checked) {
         transform: translateY(10%);
 
         .open-menu {
