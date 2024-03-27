@@ -47,6 +47,8 @@ fetchSpeakers();
 
 const yearSelectorButtons = document.querySelector('nav').querySelectorAll('ul li');
 const body = document.querySelector("body");
+const main = document.querySelector("main");
+main.classList.add("main-animation");
 
 yearSelectorButtons.forEach(button =>{
   button.addEventListener('click', function() {
@@ -55,7 +57,10 @@ yearSelectorButtons.forEach(button =>{
 
     if (button.innerText == "Show all"){
       document.documentElement.style.setProperty('--tooltip-outline-color', '#000');
+
       body.classList.add("bg-color")
+      main.classList.remove("main-animation");
+
       uniqueCountries.forEach(country => {
         // CREATES DIV FOR THE COUNTRY
         const countryDiv = document.createElement('div');

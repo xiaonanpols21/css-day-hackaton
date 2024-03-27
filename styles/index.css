@@ -37,7 +37,6 @@ body {
     }
 }
 
-
 .container {
     z-index: 2930;
 }
@@ -48,5 +47,15 @@ body {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #ff0000 0 10%, #000080 10% 20%, #6b8e23 20% 30%, #ff69b4 30% 40%, #daa520 40% 50%, #ff6347 50% 60%, #00bfff 60% 70%, #3cb371 70% 80%, #9932cc 80% 90%, #cd853f 90% 100%);
+    background-image: linear-gradient(to right, 
+    #ff0000 0 10%, 
+    #000080 10% 20%, 
+    #6b8e23 20% 30%, 
+    #ff69b4 30% 40%, 
+    #daa520 40% 50%, 
+    #ff6347 50% 60%, 
+    #00bfff 60% 70%, 
+    #3cb371 70% 80%, 
+    #9932cc 80% 90%, 
+    #cd853f 90% 100%);
 }

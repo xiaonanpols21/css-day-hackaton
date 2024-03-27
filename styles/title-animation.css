@@ -1,12 +1,16 @@
+.main-animation {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
 
 .container {
     animation: hide 1s;
     animation-delay: 5s;
     position: absolute;
+    background: #232323;
     width: 100%;
     height: 100vh;
-    background: #232323;
-  
     display: flex;
     justify-content: center;
     align-items: center;
