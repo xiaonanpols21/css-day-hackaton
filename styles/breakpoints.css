@@ -13,11 +13,11 @@
         width: 350px;
         transform: translateY(0%);
 
-        &:has(label):has(:checked) {
+        &:has(.open-menu):has(:checked) {
             transform: translateY(0%);
         }
 
-        label {
+        .open-menu {
             display: none;
         }
 
