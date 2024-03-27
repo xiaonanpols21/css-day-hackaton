@@ -1,3 +1,6 @@
+const secNoJs = document.querySelector(".no-js");
+secNoJs.classList.add("none");
+
 // Animation Set Time Out
 const animationContainer = document.querySelector('.container');
 
@@ -6,7 +9,7 @@ function hideElement() {
   main.classList.remove("main-animation");
 
 }
-setTimeout(hideElement, 5500);
+setTimeout(hideElement, 3500);
 
 // FETCHES DATA OF THE CSSDAY SPEAKERS
 let cssDaySpeakers;

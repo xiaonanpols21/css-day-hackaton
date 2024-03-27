@@ -48,12 +48,22 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 animation: arrow 2s infinite;
+                z-index: 1;
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
             }
 
             &::-webkit-scrollbar {
                 display: none;
             }
         }
+    }
+
+    .no-js {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content;
+        gap: 50px;
     }
 }
 
