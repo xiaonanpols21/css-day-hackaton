@@ -1,8 +1,8 @@
 // Animation Set Time Out
-const myElement = document.querySelector('.container');
+const animationContainer = document.querySelector('.container');
 
 function hideElement() {
-  myElement.style.display = 'none';
+  animationContainer.style.display = 'none';
   main.classList.remove("main-animation");
 
 }
@@ -13,6 +13,10 @@ let cssDaySpeakers;
 
 // CREATE A SET TO ADD UNIQUE COUNTRIES
 let uniqueCountries = new Set()
+
+// GETS THE SPEAKERSECTION
+const speakerSection = document.querySelector('.speakerSection');
+
 
 async function fetchSpeakers() {
   try {
@@ -37,7 +41,6 @@ async function fetchSpeakers() {
     for (const [year, colorHex] of Object.entries(colorsByYear)) {
       const property = `--btn-${year}`;
       document.documentElement.style.setProperty(property, colorHex);
-      console.log(`Set ${property} to ${colorHex}`);
     }
 
 
@@ -155,3 +158,45 @@ yearSelectorButtons.forEach(button =>{
     }
   });
 });
+
+// FUNCTION FOR THE SCROLLING AND ZOOMING
+let initialTouchPos = null;
+let initialScale = 1;
+
+speakerSection.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 2) { // Check if two fingers are touching the screen
+        // Calculate the initial distance between the two fingers
+        initialTouchPos = getDistanceBetweenTouches(e);
+        e.preventDefault();
+    }
+});
+
+speakerSection.addEventListener('touchmove', function(e) {
+    if (e.touches.length === 2) { // Check if two fingers are touching the screen
+        // Calculate the current distance between the two fingers
+        let currentTouchPos = getDistanceBetweenTouches(e);
+
+        // Calculate the scale factor based on the initial and current distance
+        let scaleChange = currentTouchPos / initialTouchPos;
+        scale = initialScale * scaleChange;
+
+        // Apply the scale factor to the section
+        speakerSection.style.transform = `scale(${scale})`;
+        e.preventDefault();
+    }
+});
+
+speakerSection.addEventListener('touchend', function(e) {
+    if (e.touches.length === 0 && initialTouchPos !== null) { // Check if no fingers are touching the screen and a zoom gesture was performed
+        // Update the initial scale to the current scale
+        initialScale = scale;
+        initialTouchPos = null;
+    }
+});
+
+function getDistanceBetweenTouches(e) {
+    // Calculate the distance between the two fingers
+    let xDiff = e.touches[0].clientX - e.touches[1].clientX;
+    let yDiff = e.touches[0].clientY - e.touches[1].clientY;
+    return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+}

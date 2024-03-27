@@ -27,20 +27,11 @@ body {
     width: 1px;
 }
 
-.test {
-    width: 500px;
-    height: 500px;
-    overflow: auto;
-
-    img {
-        width: 2000px;
-        height: 2000px;
-    }
-}
 
 .container {
     z-index: 2930;
 }
+
 
 .kaart {
     width: 1920px;
