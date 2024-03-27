@@ -3,6 +3,10 @@
 
     --tooltip-outline-color: #000;
 
+    --zoom-in-button-color: rgba(51, 24, 77, 1);
+    --zoom-out-button-color: rgba(51, 24, 77, 0.5);
+
+
     --white: white;
     --black: black;
     --black-2: #232323;
