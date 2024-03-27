@@ -1,0 +1,49 @@
+.introContainer {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    right: -21em;
+    /* top: 1em; */
+    margin: 1em;
+    /* align-items: center; */
+
+    transition: 1s;
+
+    input {
+        display: none;
+    }
+
+    label {
+        background-color: blue;.,/////''../
+        color: white;
+        display: flex;
+        width: 2em;
+        height: 2em;
+        margin: 0 1em 1em 0;
+        border-radius: 100%;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &:has(input:checked) {
+        right: 0;
+
+        .introText {
+            opacity: 1;
+        }
+    }
+
+    .introText {
+        background-color: white;
+        max-width: 20em;
+        padding: 1em;
+        opacity: 0;
+        border-radius: 6px;
+        outline: solid black 3px;
+        transition: 1s;
+    }
+}

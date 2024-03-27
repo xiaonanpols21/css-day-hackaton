@@ -3,9 +3,9 @@ li {
 }
 
 /* pin */
-div label {
+.speakerSection div label {
     position: absolute;
-    background: var(--white);
+    /* background: var(--white); */
     width: 5em;
     aspect-ratio: 1;
     cursor: pointer;
@@ -30,7 +30,7 @@ div label {
     }
 }
 
-input {
+.speakerSection input {
     display: none;
 }
 
@@ -105,7 +105,7 @@ div:has(input:checked) {
         border-radius: 100%;
     }
 
-    label {
+    .speakerSection label {
         outline: solid deepskyblue 12px;
     }
 }
@@ -114,6 +114,7 @@ div:has(input:checked) {
 @keyframes fall-down {
     0% {
         transform: translateY(-1000%) rotate(45deg) scale(0.4);
+        animation-timing-function: linear;
     }
 
     70% {
@@ -128,7 +129,7 @@ div:has(input:checked) {
 
     100% {
         transform: translateY(0) rotate(45deg) scale(0.4);
-        animation-timing-function: ease-out;
+        animation-timing-function: ease-in;
     }
 }
 
