@@ -95,11 +95,171 @@ Samen met een beetje styling in de css is het gelukt om de kaart te zoomen en te
 
 ### Stephan
 
-**Pins op de kaart voor het aantal sprekers per land van dat jaar**
+**Tooltips**
+Ik heb eraan gewerkt om de pins van elk land te stylen. Terwijl Max bezig was met het maken van de script om per jaar de sprekers in te laden, kon ik alvast beginnen met het plaatsen van elke pin. We willen ook dat de pins de vlag van het land hebben als achtergrond.
 
-**Informatie over de sprekers**
+Uiteindelijk hoe de HTML wordt ingeladen ziet er zo uit:
+
+```html
+<div>
+    <label class="NO">
+        <input type="radio" name="countrySelector">
+    </label>
+
+    <ul class="tooltip NO hidden">
+        <ul>
+            <li><a target="blank_" href="https://cssday.nl/2018/speakers#ida-aalen">Ida Aalen</a></li>
+            <li><img src="https://cssday.nl/_img/2018/speakers/ida.jpg">
+            </li>
+        </ul>
+        <ul>
+            <li><a target="blank_" href="https://cssday.nl/2017/programme#howcome">Håkon Wium Lie</a></li>
+            <li><img src="https://cssday.nl/_img/2017/speakers/hakon-wium-lie.jpg"></li>
+        </ul>
+    </ul>
+</div>
+```
+
+Er wordt dus een div gemaakt met daarin een label en een UL. De ```label``` wordt de pin en de ```ul``` wordt de tooltip. In die tooltip zitten nog meer ```ul``` voor elk persoon die wordt toegevoegd. De class naam ```NO``` is in dit geval de landcode. Deze heb ik nodig om dat via CSS te positioneren. 
+
+```css
+.NO {
+    left: 900px;
+    top: 240px;
+    background-image: var(--NO);
+    background-size: cover;
+}
+```
+
+Voor elke landcode class heb ik een left en top toegevoegd om die zo een plek te geven op de kaart. Voor de ```background-image``` zie je dat ik een CSS variable gebruik. Ik heb die eerst gedeclareerd in de ```:root```:
+
+```css
+    /* country flags */
+    --US: url('../assets/flags/us.svg');
+    --ES: url('../assets/flags/es.svg');
+    --NL: url('../assets/flags/nl.svg');
+    --CA: url('../assets/flags/ca.svg');
+    --DE: url('../assets/flags/de.svg');
+    --UK: url('../assets/flags/uk.svg');
+    --FR: url('../assets/flags/fr.svg');
+    --LB: url('../assets/flags/lb.svg');
+    --AT: url('../assets/flags/at.svg');
+    --PT: url('../assets/flags/pt.svg');
+    --IL: url('../assets/flags/il.svg');
+    --SE: url('../assets/flags/se.svg');
+    --LU: url('../assets/flags/lu.svg');
+    --JP: url('../assets/flags/jp.svg');
+    --NO: url('../assets/flags/no.svg');
+    --NG: url('../assets/flags/ng.svg');
+    --GR: url('../assets/flags/gr.svg');
+    --RO: url('../assets/flags/ro.svg');
+    --SG: url('../assets/flags/sg.svg');
+    --BE: url('../assets/flags/be.svg');
+```
+
+**Informatietekst**
+Om ervoor te zorgen dat mensen die de website gebruiken wel begrijpen wat de bedoeling is, hebben we een introtekst toegevoegd. We willen ook dat je dat weg kan klikken zodat het niet de hele tijd in beeld zit. 
+
+```html
+<div class="introContainer">
+    <label>
+        <input tabindex='1' type="checkbox" checked />
+    </label>
+    <section class="introText">
+        <h2>The speakers and where they're from</h2>
+        <p>On this website you can see every speaker of CSS day and where they're from! To see speakers, click on a year using the menu to see the pins. Click on a pin to see each speaker with a link to their CSS day page!</p>
+    </section>
+</div>
+```
+
+In de HTML heb ik een div met een label en een section gemaakt. Ik gebruik een checkbox input zodat je twee states hebt: aan en uit. Hiermee kan ik de section laten zien en verbergen.
+
+```css
+.introContainer {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    right: -21em;
+    /* top: 1em; */
+    margin: 1em;
+    /* align-items: center; */
+
+    transition: 1s;
+    z-index: 1;
+
+    input {
+        opacity: 0;
+    }
+
+    label {
+        background-color: white;
+        outline: solid 1px black;
+        background-image: url(../img/arrow-down.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        transform: rotate(90deg);
+        color: white;
+        display: flex;
+        width: 2em;
+        height: 2em;
+        margin: 0 1em 1em 0;
+        border-radius: 100%;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #ccc;
+        }
+
+        &:has(input:focus-visible) {
+            outline: solid 6px lime;
+        }
+    }
+
+    &:has(input:checked) {
+        right: 0;
+
+        .introText {
+            opacity: 1;
+        }
+
+        label {
+            transform: rotate(-90deg);
+        }
+    }
+
+    .introText {
+        background-color: white;
+        max-width: 20em;
+        padding: 1em;
+        opacity: 0;
+        border-radius: 6px;
+        outline: solid black 3px;
+        transition: 1s;
+        z-index: 200;
+    }
+}
+```
+
+Dus standaard staat de ```.introContainer``` op een right van -21em. Dit is buiten beeld. Met has kan ik checken of de checkbox is gecheckt, en als dat zo is: zet de right op 0. Daarnaast heb ik nog een beetje styling toegevoegd voor het pijltje dat dan ook veranderd van richting als je de intro tekst open en dicht klapt.
+
+**Focus states**
+Om het nog meer toegankelijk te maken heb ik ook nog focus states aan alle interacteerbare elementen gegeven. Op deze manier kan je de website gebruiken zonder de muis. Omdat de meeste interacteerbare elementen inputs zijn terwijl de label de styling moet krijgen, moet ik dit trucje gebruiken:
+
+```css
+label:has(input:focus) {
+    outline: solid var(--tooltip-outline-color) 12px;
+    z-index: 1;
+    scale: 1.2;
+}
+```
+
+Met ```:has()``` kan ik checken of de input is gefocust en op basis daarvan geef ik een styling aan de label.
 
 ### Xiao Nan
+
 **Navigatie met knoppen om het jaar te selecteren**
 
 ### Max
