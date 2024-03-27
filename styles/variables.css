@@ -1,4 +1,8 @@
 :root {
+    --background-color: #cccc;
+
+    --tooltip-outline-color: #000;
+
     --white: white;
     --black: black;
     --purple: #33184d;

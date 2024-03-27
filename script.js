@@ -54,6 +54,7 @@ yearSelectorButtons.forEach(button =>{
     speakerSection.innerHTML = '<img class="kaart" src="./assets/img/world-map.svg">';
 
     if (button.innerText == "Show all"){
+      document.documentElement.style.setProperty('--tooltip-outline-color', '#000');
       body.classList.add("bg-color")
       uniqueCountries.forEach(country => {
         // CREATES DIV FOR THE COUNTRY
@@ -95,7 +96,12 @@ yearSelectorButtons.forEach(button =>{
         });
       })
     } else{
+      body.classList.remove('bg-color')
       const speakersForYear = cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText));
+
+      // console.log(speakersForYear[0].edition.color.hex)
+      document.documentElement.style.setProperty('--background-color', speakersForYear[0].edition.color.hex);
+      document.documentElement.style.setProperty('--tooltip-outline-color', speakersForYear[0].edition.color.hex);
       // MAKES A LIST WITH ONLY THE COUNTRIES THAT HAVE SPEAKERS
       const countriesWithSpeakers = [...new Set(speakersForYear.map(speaker => speaker.country))];
 
