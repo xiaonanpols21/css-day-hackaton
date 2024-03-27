@@ -1,6 +1,8 @@
+const secNoJs = document.querySelector(".no-js");
+secNoJs.classList.add("none");
+
 // Animation Set Time Out
 const myElement = document.querySelector('.container');
-
 function hideElement() {
   myElement.style.display = 'none';
   main.classList.remove("main-animation");
