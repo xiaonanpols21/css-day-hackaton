@@ -11,7 +11,7 @@ header {
     height: 100%;
     padding: 20px 30px;
     background-color: var(--white);
-    z-index: 1;
+    z-index: 2;
 
     &:has(.open-menu :checked) {
         transform: translateY(10%);
@@ -216,8 +216,8 @@ header {
     div {
         height: 80%;
         overflow-y: scroll;
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
 
         &::-webkit-scrollbar {
             display: none;
