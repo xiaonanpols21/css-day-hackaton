@@ -218,7 +218,13 @@ div:nth-of-type(20) label {
   z-index: 1;
 }
 
-.closeBtn {
+/* .closeBtn{
+  appearance: none;
+  height: 0;
+  width: 0;
+}
+
+.closeBtn > img {
   width: 2em;
   height: 2em;
   position: absolute;
@@ -227,13 +233,13 @@ div:nth-of-type(20) label {
   cursor: pointer;
   transition: 0.2s;
 }
-.closeBtn:hover {
+.closeBtn > img:hover {
   scale: 1.2;
 }
 
-.closeBtn:active {
+.closeBtn > img:active {
   scale: 1;
-}
+} */
 
 /* animation */
 @keyframes fall-down {

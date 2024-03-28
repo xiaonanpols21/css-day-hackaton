@@ -36,7 +36,6 @@ async function fetchSpeakers() {
     for (const [year, colorHex] of Object.entries(colorsByYear)) {
       const property = `--btn-${year}`;
       document.documentElement.style.setProperty(property, colorHex);
-      console.log(`Set ${property} to ${colorHex}`);
     }
   } catch (error) {
     console.error("Error:", error);
@@ -54,19 +53,15 @@ main.classList.add("main-animation");
 yearSelectorButtons.forEach((button) => {
   button.addEventListener("click", function () {
     const speakerSection = document.querySelector(".speakerSection");
-    speakerSection.innerHTML =
-      '<img class="kaart" src="./assets/img/world-map.svg">';
+    speakerSection.innerHTML = '<img class="kaart" src="./assets/img/world-map.svg">';
 
     if (button.innerText == "Show all") {
-      document.documentElement.style.setProperty(
-        "--tooltip-outline-color",
-        "#000"
-      );
+      document.documentElement.style.setProperty("--tooltip-outline-color", "#000");
 
       body.classList.add("bg-color");
       main.classList.remove("main-animation");
 
-      uniqueCountries.forEach((country) => {
+      uniqueCountries.forEach((country, index) => {
         // CREATES DIV FOR THE COUNTRY
         const countryDiv = document.createElement("div");
 
@@ -93,23 +88,12 @@ yearSelectorButtons.forEach((button) => {
         // CREATES UL FOR THE SPEAKERS AND ADS A CLASS
         const countryUl = document.createElement("ul");
         countryUl.classList.add(`tooltip`, `${country}`, `hidden`);
-
-        const exitButton = document.createElement("button");
-        exitButton.innerHTML += `<img class="closeBtn" src="./img/reject.png"/>`;
-
-        // Add a click event listener to all close buttons
-
-        // ADDS THE BUTTON TO THE UL
-        countryUl.appendChild(exitButton);
-
-        exitButton.addEventListener("click", function (event) {
-          console.log("klik");
-          deselectRadioButtons();
-        });
-
+        
+        
         // ADDS UL TO THE COUNTRY DIV
         countryDiv.appendChild(countryUl);
 
+      
         cssDaySpeakers
           .filter((speaker) => speaker.country === country)
           .forEach((speakerPerCountry) => {
@@ -118,14 +102,15 @@ yearSelectorButtons.forEach((button) => {
               <li><img src="${speakerPerCountry.avatar}"</li>
               </ul>`;
           });
+        
       });
+
     } else {
       body.classList.remove("bg-color");
       const speakersForYear = cssDaySpeakers.filter(
         (speaker) => speaker.edition.year === parseInt(button.innerText)
       );
 
-      // console.log(speakersForYear[0].edition.color.hex)
       document.documentElement.style.setProperty(
         "--background-color",
         speakersForYear[0].edition.color.hex
@@ -163,23 +148,6 @@ yearSelectorButtons.forEach((button) => {
         // ADDS THE LABEL TO THE DIV
         countryDiv.appendChild(countrylabel);
 
-        // CREATES UL FOR THE SPEAKERS AND ADS A CLASS
-        const countryUl = document.createElement("ul");
-        countryUl.classList.add(`tooltip`, `${country}`, `hidden`);
-        const exitButton = document.createElement("button");
-        exitButton.innerHTML += `<img class="closeBtn" src="./img/reject.png"/>`;
-
-        // Add a click event listener to all close buttons
-        document.querySelectorAll(".closeBtn").forEach(function (closeBtn) {
-          closeBtn.addEventListener("click", function (event) {
-            event.stopPropagation();
-            console.log("klik");
-            deselectRadioButtons();
-          });
-        });
-
-        // ADDS THE BUTTON TO THE UL
-        countryUl.appendChild(exitButton);
 
         // ADDS UL TO THE COUNTRY DIV
         countryDiv.appendChild(countryUl);
@@ -199,6 +167,7 @@ yearSelectorButtons.forEach((button) => {
       });
     }
   });
+
 });
 
 // CLOSE ALL SPEAKERLISTS
@@ -207,7 +176,6 @@ function deselectRadioButtons() {
   const radioButtons = document.querySelectorAll(
     'input[type="radio"][name="countrySelector"]'
   );
-  console.log("functie aangeroepen");
   // Deselect all radio buttons
   radioButtons.forEach(function (radioButton) {
     radioButton.checked = false;
@@ -226,4 +194,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // Append the div to the body
   document.body.appendChild(fullPageDiv);
+
+  
 });
+
