@@ -209,3 +209,33 @@ zoomOutButton.addEventListener('click', function () {
   }
   speakerSection.style.transform = `scale(${scale})`; // Apply the scale
 });
+
+
+// CLOSE ALL SPEAKERLISTS
+function deselectRadioButtons() {
+  // Get all radio buttons with the name "countrySelector"
+  const radioButtons = document.querySelectorAll(
+    'input[type="radio"][name="countrySelector"]'
+  );
+  // Deselect all radio buttons
+  radioButtons.forEach(function (radioButton) {
+    radioButton.checked = false;
+  });
+}
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  // Create a new div
+  const fullPageDiv = document.createElement("div");
+  fullPageDiv.setAttribute("class", "fullPageDiv");
+
+  // Add a click event listener to the div
+  fullPageDiv.addEventListener("click", function () {
+    deselectRadioButtons();
+  });
+
+  // Append the div to the body
+  document.body.appendChild(fullPageDiv);
+
+  
+});
+
