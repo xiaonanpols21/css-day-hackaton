@@ -38,6 +38,7 @@
 
         &:has(input:focus-visible) {
             outline: solid 6px lime;
+            box-shadow: 0 0 1em lime;
         }
     }
 
@@ -62,5 +63,11 @@
         outline: solid black 3px;
         transition: 1s;
         z-index: 200;
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .introContainer {
+        transition: none;
     }
 }
