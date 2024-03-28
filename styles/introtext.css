@@ -8,7 +8,7 @@
     /* align-items: center; */
 
     transition: 1s;
-    z-index: 1;
+    z-index: 6;
 
     input {
         opacity: 0;
@@ -62,5 +62,11 @@
         outline: solid black 3px;
         transition: 1s;
         z-index: 200;
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .introContainer {
+        transition: none;
     }
 }
