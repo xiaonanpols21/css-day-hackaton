@@ -18,8 +18,8 @@ Ons idee is om met de data van alle sprekers van alle jaren een kaart te maken o
 <img src="media/readme-img/schets3.jpg" width="500px" alt="Schets">
 <img src="media/readme-img/schets4.jpg" width="500px" alt="Schets">
 <img src="media/readme-img/schets5.jpg" width="500px" alt="Schets">
-<img src="media/readme-img/ideegeneratie.png" width="500px" alt="Schets">
-<img src="media/readme-img/FinalSchets.png" width="500px" alt="Schets">
+<img src="media/readme-img/ideegeneratie.png" width="750px" alt="Schets">
+<img src="media/readme-img/FinalSchets.png" width="750px" alt="Schets">
 
 Data die wij gebruiken van speakers.json:
 
@@ -92,6 +92,46 @@ document.addEventListener('DOMContentLoaded', (event) => {
 ```
 
 Samen met een beetje styling in de css is het gelukt om de kaart te zoomen en te draggen.
+
+Helaas hebben we uiteindelijk besloten deze functie anders uit te voeren omdat het met geen mogelijkheid wilde werken met onze code die de pins op de kaart genereerd. Die schaalden niet mee met het zoomen en draggen.
+
+**Lijstje met sprekers per land sluiten**
+
+Voor nu hadden we het werkend dat je een lijstje te zien kreeg die de sprekers van dat land en dat jaar liet zien. Het werkte met een radio button dus als je een andere selecteerde sloot de eerste lijst. Dit werkte goed, alleen wilde we ook een manier om de lijst te sluiten zonder een ander land te selecteren. Een close button dus. Ook wilde we dat je overal op de kaart kan klikken om de lijst te sluiten. Hier ben ik mee begonnen. Mijn eerste idee was een Div die over de hele pagina gaat. Wanneer er op de div geklikt wordt worden alle radio buttons unchecked. Omdat ik niet wilde dat het voor andere klikbare elementen stond zette ik de div op een display: none. Zo wilde ik de display op block zetten wanneer een lijst geopend stond. Dit wilde niet goed werken. Toen besefte ik mijn dat ik met z-index natuurlijk gewoon de positionering goed kan zetten. Ik zette de div tussen de kaart en de pins. Zo kan je nog steeds een andere pin selecteren maar ook de div erachter om de lijst te sluiten. 
+
+Hier maak ik met javascript de div .fullPageDiv aan:
+
+```javascript
+document.addEventListener("DOMContentLoaded", (event) => {
+  // Create a new div
+  const fullPageDiv = document.createElement("div");
+  fullPageDiv.setAttribute("class", "fullPageDiv");
+
+  // Add a click event listener to the div
+  fullPageDiv.addEventListener("click", function () {
+    deselectRadioButtons();
+  });
+
+  // Append the div to the body
+  document.body.appendChild(fullPageDiv);
+});
+```
+Daarvoor heb ik al de function deselectRadioButtons(); aangemaakt:
+```javascript
+function deselectRadioButtons() {
+  // Get all radio buttons with the name "countrySelector"
+  const radioButtons = document.querySelectorAll(
+    'input[type="radio"][name="countrySelector"]'
+  );
+  console.log("functie aangeroepen");
+  // Deselect all radio buttons
+  radioButtons.forEach(function (radioButton) {
+    radioButton.checked = false;
+  });
+}
+```
+
+Deze functie kan ik later ook gaan gebruiken voor een close knop in de lijst.
 
 ### Stephan
 
