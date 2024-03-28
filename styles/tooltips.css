@@ -1,14 +1,15 @@
 .speakerSection li {
-    list-style: none;
+  list-style: none;
 }
+
 
 /* pin */
 .speakerSection div label {
-    position: absolute;
-    /* background: var(--white); */
-    width: 5em;
-    aspect-ratio: 1;
-    cursor: pointer;
+  position: absolute;
+  /* background: var(--white); */
+  width: 5em;
+  aspect-ratio: 1;
+  cursor: pointer;
 
     transform-origin: bottom right;
     transform: rotate(45deg) scale(0.4);
@@ -31,9 +32,9 @@
         scale: 1.2;
     }
 
-    &:active {
-        scale: 1.4;
-    }
+  &:active {
+    scale: 1.4;
+  }
 }
 
 .speakerSection input {
@@ -42,13 +43,13 @@
 
 /* tooltip */
 .hidden {
-    display: none;
+  display: none;
 }
 
 div:has(input:checked) {
-    .tooltip {
-        transform: translate(6em, 2em);
-        padding: 1em;
+  .tooltip {
+    transform: translate(6em, 2em);
+    padding: 1em;
 
         position: absolute;
         list-style: none;
@@ -56,47 +57,51 @@ div:has(input:checked) {
         z-index: 1;
         border-radius: 5px;
 
-        display: block;
-        opacity: 1;
-        background: var(--white);
-        box-shadow: 0.3em 0.3em 1em #0005;
+    display: block;
+    opacity: 1;
+    background: var(--white);
+    box-shadow: 0.3em 0.3em 1em #0005;
 
         max-height: 20em;
         width: max-content;
         overflow: scroll;
 
-        scrollbar-width: thin;
+    scrollbar-width: thin;
+  }
+
+  .tooltip ul {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .tooltip a {
+    color: black;
+
+    &:hover,
+    &:focus-visible {
+      background: yellow;
     }
+  }
 
-    .tooltip ul {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: start;
-    }
+  .tooltip ul li {
+    padding-left: 0.5em;
+  }
 
-    .tooltip a {
-        color: black;
-
-        &:hover,
-        &:focus-visible {
-            background: yellow;
-        }
-    }
-
-    .tooltip ul li {
-        padding-left: 0.5em;
-    }
-
+  .tooltip ul img {
+    width: 2.5em;
+    border-radius: 100%;
+  }
     .tooltip ul img {
         width: 2.5em;
         aspect-ratio: 1;
         border-radius: 100%;
     }
 
-    .speakerSection label {
-        outline: solid deepskyblue 12px;
-    }
+  .speakerSection label {
+    outline: solid deepskyblue 12px;
+  }
 }
 
 /* tooltip */
@@ -158,94 +163,154 @@ a[href='false'] {
 }
 
 div:nth-of-type(1) label {
+  animation-delay: 0.1s;
+}
+div:nth-of-type(1) label {
     animation-delay: 0.1s;
 }
 
+div:nth-of-type(2) label {
+  animation-delay: 0.2s;
+}
 div:nth-of-type(2) label {
     animation-delay: 0.2s;
 }
 
 div:nth-of-type(3) label {
+  animation-delay: 0.3s;
+}
+div:nth-of-type(3) label {
     animation-delay: 0.3s;
 }
 
+div:nth-of-type(4) label {
+  animation-delay: 0.4s;
+}
 div:nth-of-type(4) label {
     animation-delay: 0.4s;
 }
 
 div:nth-of-type(5) label {
+  animation-delay: 0.5s;
+}
+div:nth-of-type(5) label {
     animation-delay: 0.5s;
 }
 
+div:nth-of-type(6) label {
+  animation-delay: 0.6s;
+}
 div:nth-of-type(6) label {
     animation-delay: 0.6s;
 }
 
 div:nth-of-type(7) label {
+  animation-delay: 0.7s;
+}
+div:nth-of-type(7) label {
     animation-delay: 0.7s;
 }
 
+div:nth-of-type(8) label {
+  animation-delay: 0.8s;
+}
 div:nth-of-type(8) label {
     animation-delay: 0.8s;
 }
 
 div:nth-of-type(9) label {
+  animation-delay: 0.9s;
+}
+div:nth-of-type(9) label {
     animation-delay: 0.9s;
 }
 
+div:nth-of-type(10) label {
+  animation-delay: 1s;
+}
 div:nth-of-type(10) label {
     animation-delay: 1s;
 }
 
 div:nth-of-type(11) label {
+  animation-delay: 1.1s;
+}
+div:nth-of-type(11) label {
     animation-delay: 1.1s;
 }
 
+div:nth-of-type(12) label {
+  animation-delay: 1.2s;
+}
 div:nth-of-type(12) label {
     animation-delay: 1.2s;
 }
 
 div:nth-of-type(13) label {
+  animation-delay: 1.3s;
+}
+div:nth-of-type(13) label {
     animation-delay: 1.3s;
 }
 
+div:nth-of-type(14) label {
+  animation-delay: 1.4s;
+}
 div:nth-of-type(14) label {
     animation-delay: 1.4s;
 }
 
 div:nth-of-type(15) label {
+  animation-delay: 1.5s;
+}
+div:nth-of-type(15) label {
     animation-delay: 1.5s;
 }
 
+div:nth-of-type(16) label {
+  animation-delay: 1.6s;
+}
 div:nth-of-type(16) label {
     animation-delay: 1.6s;
 }
 
 div:nth-of-type(17) label {
+  animation-delay: 1.7s;
+}
+div:nth-of-type(17) label {
     animation-delay: 1.7s;
 }
 
+div:nth-of-type(18) label {
+  animation-delay: 1.8s;
+}
 div:nth-of-type(18) label {
     animation-delay: 1.8s;
 }
 
 div:nth-of-type(19) label {
+  animation-delay: 1.9s;
+}
+div:nth-of-type(19) label {
     animation-delay: 1.9s;
 }
 
+div:nth-of-type(20) label {
+  animation-delay: 2s;
+}
 div:nth-of-type(20) label {
     animation-delay: 2s;
 }
 
 /* country positioning */
 .US {
-    left: 400px;
-    top: 400px;
-    background-image: var(--US);
-    background-size: cover;
-    overflow: hidden;
+  left: 400px;
+  top: 400px;
+  background-image: var(--US);
+  background-size: cover;
+  overflow: hidden;
 
-    /* &::after {
+  /* &::after {
         content: '';
 
         position: absolute;
@@ -261,94 +326,94 @@ div:nth-of-type(20) label {
 }
 
 .CA {
-    left: 370px;
-    top: 270px;
-    background-image: var(--CA);
-    background-size: cover;
+  left: 370px;
+  top: 270px;
+  background-image: var(--CA);
+  background-size: cover;
 }
 
 .NL {
-    left: 860px;
-    top: 295px;
-    background-image: var(--NL);
-    background-size: cover;
+  left: 860px;
+  top: 295px;
+  background-image: var(--NL);
+  background-size: cover;
 }
 
 .BE {
-    left: 855px;
-    top: 300px;
-    background-image: var(--BE);
-    background-size: cover;
+  left: 855px;
+  top: 300px;
+  background-image: var(--BE);
+  background-size: cover;
 }
 
 .SE {
-    left: 870px;
-    top: 240px;
-    background-image: var(--SE);
-    background-size: cover;
+  left: 870px;
+  top: 240px;
+  background-image: var(--SE);
+  background-size: cover;
 }
 
 .NO {
-    left: 900px;
-    top: 240px;
-    background-image: var(--NO);
-    background-size: cover;
+  left: 900px;
+  top: 240px;
+  background-image: var(--NO);
+  background-size: cover;
 }
 
 .NG {
-    left: 870px;
-    top: 550px;
-    background-image: var(--NG);
-    background-size: cover;
+  left: 870px;
+  top: 550px;
+  background-image: var(--NG);
+  background-size: cover;
 }
 
 .DE {
-    left: 880px;
-    top: 310px;
-    background-image: var(--DE);
-    background-size: cover;
+  left: 880px;
+  top: 310px;
+  background-image: var(--DE);
+  background-size: cover;
 }
 
 .AT {
-    left: 900px;
-    top: 320px;
-    background-image: var(--AT);
-    background-size: cover;
+  left: 900px;
+  top: 320px;
+  background-image: var(--AT);
+  background-size: cover;
 }
 
 .LU {
-    left: 870px;
-    top: 300px;
-    background-image: var(--LU);
-    background-size: cover;
+  left: 870px;
+  top: 300px;
+  background-image: var(--LU);
+  background-size: cover;
 }
 
 .GR {
-    left: 930px;
-    top: 350px;
-    background-image: var(--GR);
-    background-size: cover;
+  left: 930px;
+  top: 350px;
+  background-image: var(--GR);
+  background-size: cover;
 }
 
 .LB {
-    left: 1000px;
-    top: 400px;
-    background-image: var(--LB);
-    background-size: cover;
+  left: 1000px;
+  top: 400px;
+  background-image: var(--LB);
+  background-size: cover;
 }
 
 .IL {
-    left: 992px;
-    top: 425px;
-    background-image: var(--IL);
-    background-size: cover;
+  left: 992px;
+  top: 425px;
+  background-image: var(--IL);
+  background-size: cover;
 }
 
 .JP {
-    left: 1450px;
-    top: 400px;
-    background-image: var(--JP);
-    background-size: cover;
+  left: 1450px;
+  top: 400px;
+  background-image: var(--JP);
+  background-size: cover;
 }
 
 .UK {
@@ -359,36 +424,36 @@ div:nth-of-type(20) label {
 }
 
 .FR {
-    left: 840px;
-    top: 330px;
-    background-image: var(--FR);
-    background-size: cover;
+  left: 840px;
+  top: 330px;
+  background-image: var(--FR);
+  background-size: cover;
 }
 
 .ES {
-    left: 815px;
-    top: 370px;
-    background-image: var(--ES);
-    background-size: cover;
+  left: 815px;
+  top: 370px;
+  background-image: var(--ES);
+  background-size: cover;
 }
 
 .PT {
-    left: 797px;
-    top: 375px;
-    background-image: var(--PT);
-    background-size: cover;
+  left: 797px;
+  top: 375px;
+  background-image: var(--PT);
+  background-size: cover;
 }
 
 .RO {
-    left: 950px;
-    top: 350px;
-    background-image: var(--RO);
-    background-size: cover;
+  left: 950px;
+  top: 350px;
+  background-image: var(--RO);
+  background-size: cover;
 }
 
 .SG {
-    left: 1275px;
-    top: 580px;
-    background-image: var(--SG);
-    background-size: cover;
+  left: 1275px;
+  top: 580px;
+  background-image: var(--SG);
+  background-size: cover;
 }
