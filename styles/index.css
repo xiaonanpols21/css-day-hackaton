@@ -45,6 +45,7 @@ body {
         width: 3rem;
         border:none;
         border-radius: 0.5rem;
+        z-index: 7;
     img{
         height: 2rem;
     }
@@ -73,4 +74,10 @@ body {
 
 .none {
     display: none;
+}
+
+@media (prefers-reduced-motion) {
+    .speakerSection {
+        transition: none;
+    }
 }
