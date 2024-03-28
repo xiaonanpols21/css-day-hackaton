@@ -376,6 +376,162 @@ Wanneer er geen JavaScript is, dan werkt de hele site niet. Maar dan is het wel 
 ### Max
 **Navigatie met knoppen om het jaar te selecteren**
 
+## Inleiding
+Deze code is ontwikkeld om een interactieve webpagina te creëren waarbij gebruikers informatie kunnen bekijken over sprekers van een evenement, gesorteerd op land en jaar van de editie. Het biedt functionaliteiten zoals het filteren van sprekers per land en editiejaar, en het in- en uitzoomen op een wereldkaart.
+
+## Hoofdfunctionaliteiten
+1. Selectie van het Jaar
+Wat Het Doet: De code begint met het toevoegen van een klik-eventlistener aan elk "jaar selectie"-knop. Wanneer een gebruiker op een van deze knoppen klikt, voert de code verschillende acties uit afhankelijk van de keuze van de gebruiker.
+Hoe Het Werkt: Als de gebruiker kiest voor "Toon alles", past de code de stijl van de webpagina aan (zoals de achtergrondkleur) en toont een wereldkaart. Vervolgens genereert het dynamisch een lijst van landen met bijbehorende sprekers. Als een specifiek jaar wordt gekozen, filtert de code de sprekers op basis van dat jaar en past het de kleurstijlen dienovereenkomstig aan.
+2. Weergave van Sprekers
+Wat Het Doet: Voor elk land worden sprekers weergegeven in een gestructureerde lijst, inclusief hun namen, foto's en links naar meer informatie.
+Hoe Het Werkt: De code maakt gebruik van HTML-elementen zoals <div>, <label>, <input>, en <ul> om een overzichtelijke structuur op te bouwen. Sprekers worden gefilterd op land of op jaar en land, afhankelijk van de selectie van de gebruiker.
+3. In- en Uitzoomen op de Wereldkaart
+Wat Het Doet: Gebruikers kunnen in- en uitzoomen op de wereldkaart om een beter overzicht te krijgen.
+Hoe Het Werkt: Twee knoppen, voor inzoomen en uitzoomen, passen de schaal van de wereldkaart aan. De code beperkt de schaalverandering tot een specifiek bereik om te voorkomen dat gebruikers te ver in- of uitzoomen.
+## Technische Details
+Variabelen en Selectors: De code gebruikt JavaScript-selectors zoals document.querySelector en document.getElementById om specifieke HTML-elementen in de code te vinden en te manipuleren.
+Event Listeners: Door het gebruik van event listeners kan de pagina reageren op gebruikersacties zonder de pagina te hoeven herladen.
+Dynamische Element Creatie: De code creëert dynamisch HTML-elementen gebaseerd op de data van de sprekers. Dit maakt het makkelijker om de inhoud te updaten of aan te passen.
+
+```
+yearSelectorButtons.forEach(button =>{
+  button.addEventListener('click', function() {
+    const speakerSection = document.querySelector('.speakerSection');
+    speakerSection.innerHTML = '<img class="kaart" src="./assets/img/world-map.svg">';
+
+    if (button.innerText == "Show all"){
+      document.documentElement.style.setProperty('--tooltip-outline-color', '#000');
+
+      document.documentElement.style.setProperty('--background-color', '#ccc');
+      main.classList.remove("main-animation");
+
+      uniqueCountries.forEach(country => {
+        // CREATES DIV FOR THE COUNTRY
+        const countryDiv = document.createElement('div');
+
+        // ADDS THE COUNTRY DIV TO THE SPEAKERSECTION
+        speakerSection.appendChild(countryDiv);
+
+        // CREATES A LABEL FOR THE COUNTRY
+        const countrylabel = document.createElement('label');
+
+        // ADDS THE CLASS OF THE COUNTRY TO THE LABEL
+        countrylabel.classList.add(country);
+
+        // CREATES INPUT FOR INSIDE THE LABEL WILL BE SET TO CHECKBOX
+        const countryInput = document.createElement('input');
+        countryInput.setAttribute('type', 'radio');
+        countryInput.setAttribute('name', 'countrySelector');
+
+        // ADDS INPUT TO THE LABEL
+        countrylabel.appendChild(countryInput);
+
+        // ADDS THE LABEL TO THE DIV
+        countryDiv.appendChild(countrylabel);
+
+        // CREATES UL FOR THE SPEAKERS AND ADS A CLASS
+        const countryUl = document.createElement('ul');
+        countryUl.classList.add(`tooltip`, `${country}`, `hidden`);
+
+        // ADDS UL TO THE COUNTRY DIV
+        countryDiv.appendChild(countryUl);
+
+        cssDaySpeakers.filter(speaker => speaker.country === country).forEach(speakerPerCountry => {
+          countryUl.innerHTML +=
+              `<ul>
+              <li><a target='blank_' href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
+              <li><img src="${speakerPerCountry.avatar}"</li>
+              </ul>`
+        });
+      })
+    } else{
+      const speakersForYear = cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText));
+
+      // console.log(speakersForYear[0].edition.color.hex)
+      document.documentElement.style.setProperty('--background-color', speakersForYear[0].edition.color.hex);
+      document.documentElement.style.setProperty('--tooltip-outline-color', speakersForYear[0].edition.color.hex);
+      // MAKES A LIST WITH ONLY THE COUNTRIES THAT HAVE SPEAKERS
+      const countriesWithSpeakers = [...new Set(speakersForYear.map(speaker => speaker.country))];
+
+      countriesWithSpeakers.forEach(country => {
+        // CREATES DIV FOR THE COUNTRY
+        const countryDiv = document.createElement('div');
+
+        // ADDS THE COUNTRY DIV TO THE SPEAKERSECTION
+        speakerSection.appendChild(countryDiv);
+
+        // CREATES A LABEL FOR THE COUNTRY
+        const countrylabel = document.createElement('label');
+
+        // ADDS THE CLASS OF THE COUNTRY TO THE LABEL
+        countrylabel.classList.add(country);
+
+        // CREATES INPUT FOR INSIDE THE LABEL WILL BE SET TO CHECKBOX
+        const countryInput = document.createElement('input');
+        countryInput.setAttribute('type', 'radio');
+        countryInput.setAttribute('name', 'countrySelector');
+
+        // ADDS INPUT TO THE LABEL
+        countrylabel.appendChild(countryInput);
+
+        // ADDS THE LABEL TO THE DIV
+        countryDiv.appendChild(countrylabel);
+
+        // CREATES UL FOR THE SPEAKERS AND ADS A CLASS
+        const countryUl = document.createElement('ul');
+        countryUl.classList.add(`tooltip`, `${country}`, `hidden`);
+
+        // ADDS UL TO THE COUNTRY DIV
+        countryDiv.appendChild(countryUl);
+    
+        cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.textContent) && speaker.country === country).forEach(speakerPerCountry => {
+           countryUl.innerHTML +=
+           `<ul>
+           <li><a target='blank_' href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
+           <li><img src="${speakerPerCountry.avatar}"</li>
+           </ul>`
+       });
+       
+       });
+    }
+  });
+});
+
+
+// ZOOM IN AND OUT FUNCTION
+const zoomInButton = document.getElementById('zoomInMap')
+const zoomOutButton = document.getElementById('zoomOutMap')
+let scale = 1; // Initial scale
+
+zoomInButton.addEventListener('click', function(){
+  scale += 0.3; // Increase the scale
+  if (scale >= 3){
+    document.documentElement.style.setProperty('--zoom-in-button-color', 'rgba(51, 24, 77, 0.5)');
+    document.documentElement.style.setProperty('--zoom-in-cursor', 'not-allowed');
+    scale = 3;
+  } else{
+    document.documentElement.style.setProperty('--zoom-out-button-color', 'rgba(51, 24, 77, 1)');
+    document.documentElement.style.setProperty('--zoom-out-cursor', 'pointer');
+  }
+  speakerSection.style.transform = `scale(${scale})`; // Apply the scale
+});
+
+zoomOutButton.addEventListener('click', function(){
+  scale -= 0.3; // Decrease the scale
+  if(scale <= 1){
+    scale = 1;
+    document.documentElement.style.setProperty('--zoom-out-button-color', 'rgba(51, 24, 77, 0.5)');
+    document.documentElement.style.setProperty('--zoom-out-cursor', 'not-allowed');
+  } else{
+    document.documentElement.style.setProperty('--zoom-in-button-color', 'rgba(51, 24, 77, 1)');
+    document.documentElement.style.setProperty('--zoom-in-cursor', 'pointer');
+  }
+  speakerSection.style.transform = `scale(${scale})`; // Apply the scale
+});
+```
+
+
 ## Bronnen
 
 -   https://nl.vecteezy.com/vector-kunst/10158602-wereldkaart-achtergrond-grijze-kleur-met-nationale-grenzen
