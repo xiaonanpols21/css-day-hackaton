@@ -262,10 +262,79 @@ label:has(input:focus) {
 Met ```:has()``` kan ik checken of de input is gefocust en op basis daarvan geef ik een styling aan de label.
 
 ### Xiao Nan
+**Buttons stylen**
+In de HTML hebben we voor de buttons een input gebruikt zodat je makkelijk de active style kan toevoegen:
+```html
+<ul>
+    <li>
+        <label>
+            <p>Show all</p>
+            <input type="radio" name="years" value="Show all" />
+        </label>
+    </li>
+    <li>
+        <label>
+            <p>2024</p>
+            <input type="radio" name="years" value="2024" />
+        </label>
+    </li>
+    <li>
+        <label>
+            <p>2023</p>
+            <input type="radio" name="years" value="2023" />
+        </label>
+    </li>
+</ul>
+```
 
-**Navigatie met knoppen om het jaar te selecteren**
+De button background-color komt uit de data van heet jaar. De kleuren wordt opgehaald uit de data en in een variable gezet. Dan worden de kleuren toegevoegd aan de properties in de CSS om de juiste kleur te krijgen. 
+```js
+// Get the colors of the years
+const colorsByYear = {};
+data.forEach(speaker => {
+    const colorHex = speaker.edition.color.hex;
+    const year = speaker.edition.year;
+
+    if (!colorsByYear[year]) {
+    colorsByYear[year] = colorHex;
+    }
+});
+
+// Set background colors for each year
+for (const [year, colorHex] of Object.entries(colorsByYear)) {
+    const property = `--btn-${year}`;
+    document.documentElement.style.setProperty(property, colorHex);
+}
+```
+
+**Intro animatie**
+Animatie begin scherm wordt toegevoegd. Dan met JavaScript wordt de animatie verwijdert na 3.5 sec. 
+
+```js
+function hideElement() {
+  animationContainer.style.display = 'none';
+  main.classList.remove("main-animation");
+
+}
+setTimeout(hideElement, 3500);
+```
+
+**No JavaScript**
+Wanneer er geen JavaScript is, dan werkt de hele site niet. Maar dan is het wel mooi om te laten zien dat de JavaScript aan moet staat. Dus dan is er een waat moet je doen lijst voor Chrome, FireFox en Safari. 
+
+```html
+<section>
+    <h3>Chrome</h3>
+    <ol>
+        <li>Open Chrome DevTools.</li>
+        <li>Depending on your operating system, press one of the following: On Window or Linux, Control + Shift + P. On MacOS, Command + Shift + P. The Command Menu opens.</li>
+        <li>Start typing javascript , select Disable JavaScript, and then press Enter to run the command. JavaScript is now disabled.</li>
+    </ol>
+</section>
+```
 
 ### Max
+**Navigatie met knoppen om het jaar te selecteren**
 
 ## Bronnen
 
