@@ -46,6 +46,21 @@ async function fetchSpeakers() {
       document.documentElement.style.setProperty(property, colorHex);
     }
 
+    // Show placeholder image if speaker doesn't have an avatar
+    cssDaySpeakers.forEach(speaker => {
+      if (speaker.avatar === false) {
+        speaker.avatar = '../img/img-placeholder.svg';
+      }
+    });
+
+    // cssDaySpeakers.forEach(speaker => {
+    //   if (speaker.link === false) {
+    //     speaker.link = 'something-else';
+    //   }
+    // });
+
+    // console.log(cssDaySpeakers)
+
 
   } catch (error) {
     console.error('Error:', error);
@@ -58,12 +73,12 @@ const body = document.querySelector("body");
 const main = document.querySelector("main");
 main.classList.add("main-animation");
 
-yearSelectorButtons.forEach(button =>{
-  button.addEventListener('click', function() {
+yearSelectorButtons.forEach(button => {
+  button.addEventListener('click', function () {
     const speakerSection = document.querySelector('.speakerSection');
     speakerSection.innerHTML = '<img class="kaart" src="./assets/img/world-map.svg">';
 
-    if (button.innerText == "Show all"){
+    if (button.innerText == "Show all") {
       document.documentElement.style.setProperty('--tooltip-outline-color', '#000');
 
       document.documentElement.style.setProperty('--background-color', '#ccc');
@@ -102,13 +117,13 @@ yearSelectorButtons.forEach(button =>{
 
         cssDaySpeakers.filter(speaker => speaker.country === country).forEach(speakerPerCountry => {
           countryUl.innerHTML +=
-              `<ul>
+            `<ul>
               <li><a target='blank_' href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
               <li><img src="${speakerPerCountry.avatar}"</li>
               </ul>`
         });
       })
-    } else{
+    } else {
       const speakersForYear = cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.innerText));
 
       // console.log(speakersForYear[0].edition.color.hex)
@@ -147,16 +162,16 @@ yearSelectorButtons.forEach(button =>{
 
         // ADDS UL TO THE COUNTRY DIV
         countryDiv.appendChild(countryUl);
-    
+
         cssDaySpeakers.filter(speaker => speaker.edition.year === parseInt(button.textContent) && speaker.country === country).forEach(speakerPerCountry => {
-           countryUl.innerHTML +=
-           `<ul>
+          countryUl.innerHTML +=
+            `<ul>
            <li><a target='blank_' href="${speakerPerCountry.link}">${speakerPerCountry.name}</a></li>
            <li><img src="${speakerPerCountry.avatar}"</li>
            </ul>`
-       });
-       
-       });
+        });
+
+      });
     }
   });
 });
@@ -167,26 +182,26 @@ const zoomInButton = document.getElementById('zoomInMap')
 const zoomOutButton = document.getElementById('zoomOutMap')
 let scale = 1; // Initial scale
 
-zoomInButton.addEventListener('click', function(){
+zoomInButton.addEventListener('click', function () {
   scale += 0.3; // Increase the scale
-  if (scale >= 3){
+  if (scale >= 3) {
     document.documentElement.style.setProperty('--zoom-in-button-color', 'rgba(51, 24, 77, 0.5)');
     document.documentElement.style.setProperty('--zoom-in-cursor', 'not-allowed');
     scale = 3;
-  } else{
+  } else {
     document.documentElement.style.setProperty('--zoom-out-button-color', 'rgba(51, 24, 77, 1)');
     document.documentElement.style.setProperty('--zoom-out-cursor', 'pointer');
   }
   speakerSection.style.transform = `scale(${scale})`; // Apply the scale
 });
 
-zoomOutButton.addEventListener('click', function(){
+zoomOutButton.addEventListener('click', function () {
   scale -= 0.3; // Decrease the scale
-  if(scale <= 1){
+  if (scale <= 1) {
     scale = 1;
     document.documentElement.style.setProperty('--zoom-out-button-color', 'rgba(51, 24, 77, 0.5)');
     document.documentElement.style.setProperty('--zoom-out-cursor', 'not-allowed');
-  } else{
+  } else {
     document.documentElement.style.setProperty('--zoom-in-button-color', 'rgba(51, 24, 77, 1)');
     document.documentElement.style.setProperty('--zoom-in-cursor', 'pointer');
   }

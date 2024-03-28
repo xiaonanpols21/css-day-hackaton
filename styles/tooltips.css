@@ -45,18 +45,6 @@
     display: none;
 }
 
-@keyframes show {
-    0% {
-        transform: translate(6em, 6em);
-        opacity: 0;
-        max-height: 0;
-    }
-
-    input {
-        display: none;
-    }
-}
-
 div:has(input:checked) {
     .tooltip {
         transform: translate(6em, 2em);
@@ -65,7 +53,7 @@ div:has(input:checked) {
         position: absolute;
         list-style: none;
         outline: solid 3px var(--tooltip-outline-color);
-        z-index: 4;
+        z-index: 1;
         border-radius: 5px;
 
         display: block;
@@ -74,6 +62,7 @@ div:has(input:checked) {
         box-shadow: 0.3em 0.3em 1em #0005;
 
         max-height: 20em;
+        width: max-content;
         overflow: scroll;
 
         scrollbar-width: thin;
@@ -101,11 +90,70 @@ div:has(input:checked) {
 
     .tooltip ul img {
         width: 2.5em;
+        aspect-ratio: 1;
         border-radius: 100%;
     }
 
     .speakerSection label {
         outline: solid deepskyblue 12px;
+    }
+}
+
+/* tooltip */
+.hidden {
+    display: none;
+}
+
+@keyframes show {
+    0% {
+        transform: translate(6em, 6em);
+        opacity: 0;
+        max-height: 0;
+    }
+
+    100% {
+        transform: translate(6em, 2em);
+        opacity: 1;
+        max-height: 20em;
+    }
+}
+
+.tooltip {
+    opacity: 0;
+    animation: show 0.8s both cubic-bezier(0.06, 0.51, 0.18, 1.01);
+}
+
+/* animation */
+@keyframes fall-down {
+    0% {
+        transform: translateY(-1000%) rotate(45deg) scale(0.4);
+        animation-timing-function: linear;
+    }
+
+    70% {
+        transform: translateY(0) rotate(45deg) scale(0.4);
+        animation-timing-function: ease-out;
+    }
+
+    80% {
+        transform: translateY(-20%) rotate(45deg) scale(0.4);
+        animation-timing-function: linear;
+    }
+
+    100% {
+        transform: translateY(0) rotate(45deg) scale(0.4);
+        animation-timing-function: ease-in;
+    }
+}
+
+a[href='false'] {
+    pointer-events: none;
+    text-decoration: none;
+}
+
+@media (prefers-reduced-motion) {
+    .tooltip, .speakerSection div label {
+        animation: none;
     }
 }
 
@@ -187,53 +235,6 @@ div:nth-of-type(19) label {
 
 div:nth-of-type(20) label {
     animation-delay: 2s;
-}
-
-/* tooltip */
-.hidden {
-    display: none;
-}
-
-@keyframes show {
-    0% {
-        transform: translate(6em, 6em);
-        opacity: 0;
-        max-height: 0;
-    }
-
-    100% {
-        transform: translate(6em, 2em);
-        opacity: 1;
-        max-height: 20em;
-    }
-}
-
-.tooltip {
-    opacity: 0;
-    animation: show 0.8s both cubic-bezier(0.06, 0.51, 0.18, 1.01);
-}
-
-/* animation */
-@keyframes fall-down {
-    0% {
-        transform: translateY(-1000%) rotate(45deg) scale(0.4);
-        animation-timing-function: linear;
-    }
-
-    70% {
-        transform: translateY(0) rotate(45deg) scale(0.4);
-        animation-timing-function: ease-out;
-    }
-
-    80% {
-        transform: translateY(-20%) rotate(45deg) scale(0.4);
-        animation-timing-function: linear;
-    }
-
-    100% {
-        transform: translateY(0) rotate(45deg) scale(0.4);
-        animation-timing-function: ease-in;
-    }
 }
 
 /* country positioning */
